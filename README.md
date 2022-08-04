@@ -21,36 +21,41 @@ NUI Automation Test by Aurum. This test is designed to test NUITizenGallery exam
   [Tizen.NUI.WidgetViewTest](https://github.com/Samsung/TizenFX/tree/master/test/Tizen.NUI.WidgetViewTest)
 
 ### Test Environment Settings
-- Start from Aurum directory (aurum/)
+- Pre-environment Setting
+  #### Start from Aurum directory (aurum/)
 
-  (host) cd ui_automation/python/mobile
+  <span style="color:yellowgreen">(host)</span> ```cd ui_automation/python/mobile```
 
   #### Create virtual env
-  (host) python3 -m venv v
+  <span style="color:yellowgreen">(host)</span> ```python3 -m venv v```
 
   #### Activate a virtual env
-  Linux
-  (host) source v/bin/activate
-  Window
-  (host) v/Scripts/activate.bat
+
+  - Linux
+      <span style="color:yellowgreen">(host)</span> ```source v/bin/activate```
+
+  - Window
+     <span style="color:yellowgreen">(host)</span> ```v/Scripts/activate.bat```
 
   #### Install required pkg (only once)
-  (python_virtual) pip3 install -r ../../../protocol/resources/python/requirements.txt
+  <span style="color:blueviolet">(python_virtual)</span> ```pip3 install -r ../../../protocol/resources/python/requirements.txt```
 
   #### Generate aurum.proto file for python (only once)
-  (python_virtual) python3 -m grpc_tools.protoc --python_out=./ --grpc_python_out=./ -I ./../../../protocol/ ../../../protocol/aurum.proto
+  <span style="color:blueviolet">(python_virtual)</span> ```python3 -m grpc_tools.protoc --python_out=./ --grpc_python_out=./ -I ./../../../protocol/ ../../../protocol/aurum.proto```
 
   #### Target setup such as sdb forward, bootstrap execution
-  (python_virtual) python3 ../../../protocol/resources/python/mobile/mobileSetup.py
+  <span style="color:blueviolet">(python_virtual)</span> ```python3 ../../../protocol/resources/python/mobile/mobileSetup.py```
 
-- Move test directory (NUIAutomationTest/)
-  (host) cd test/NUITizenGallery/
+- Launch Test
+  #### Move test directory (cd {yourlocation}/NUIAutomationTest/)
+
+  <span style="color:blueviolet">(python_virtual)</span> ```cd test/NUITizenGallery/```
 
   #### Take screenshots (only required first time)
-  (host) python3 ScreenShotCapturer.py
+  <span style="color:blueviolet">(python_virtual)</span> ```python3 ScreenShotCapturer.py```
 
   #### Run test
-  (host) python3 {test-name}.py
+  <span style="color:blueviolet">(python_virtual)</span> ```python3 {test-name}.py```
 
   #### Run all test
-  (host) python3 AllTest.py
+  <span style="color:blueviolet">(python_virtual)</span> ```python3 AllTest.py```
