@@ -3,6 +3,7 @@ NUI Automation Test by Aurum. This test is designed to test NUITizenGallery exam
 
 ### Requirements and Pre-Conditions
 - Aurum : Tizen UI Automator
+
   [Aurum Public](https://review.tizen.org/gerrit/#/admin/projects/platform/core/uifw/aurum) (Login Required)
 
 - Tizen Device (Raspberry PI 4 Tizen)
@@ -12,8 +13,11 @@ NUI Automation Test by Aurum. This test is designed to test NUITizenGallery exam
 - sdb, python3 in PC
 
 - Install latest packages on Device
+
   [NUITizenGallery](https://github.com/nui-dali/NUITizenGallery)
+
   [Tizen.NUI.WebViewTest](https://github.com/Samsung/TizenFX/tree/master/test/Tizen.NUI.WebViewTest) (Need to change csproj for binary build.)
+
   [Tizen.NUI.WidgetViewTest](https://github.com/Samsung/TizenFX/tree/master/test/Tizen.NUI.WidgetViewTest)
 
 ### Test Environment Settings
