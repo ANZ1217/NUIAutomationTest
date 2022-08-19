@@ -71,9 +71,9 @@ def RunAllTest(ret):
     ret.write(pCount + fCount + "\n")
     if failedCount != 0:
         failedList = "Falied Test : [{}]".format(failedTest)
-        print("\033[91m" + failedList + "\033[0m")
+        print("\033[38;5;214m" + failedList + "\033[0m")
         ret.write(failedList + "\n")
-    print("\033[38;5;214mResult log is written in ./result.txt\033[0m")
+    print("Result log is written in ./result.txt")
 
 if __name__ == '__main__':
     f = open("./result.txt", "w")
