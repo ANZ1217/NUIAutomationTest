@@ -27,3 +27,4 @@ SliderTest4
 SwitchTest0
 TabContentTest0
 TabViewTest1
+TimePickerTest1
