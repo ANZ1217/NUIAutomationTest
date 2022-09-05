@@ -45,6 +45,7 @@ Test will take screenshots for each examples and compare with expected screensho
 
   #### Install required pkg (only once)
   (python_virtual) ```pip3 install -r ../../../protocol/resources/python/requirements.txt```
+  
   (python_virtual) ```pip3 install opencv-python```
 
   #### Target setup such as sdb forward, bootstrap execution
