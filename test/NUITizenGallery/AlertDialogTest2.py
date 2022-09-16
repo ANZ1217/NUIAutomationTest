@@ -82,7 +82,7 @@ def runTest(stub, testFunc):
 
 
 def run():                                                         
-    with grpc.insecure_channel('localhost:50051') as channel:      
+    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:      
         stub = BootstrapStub(channel)
         runTest(stub, CheckAlertDialogTestStart)
         runTest(stub, CheckAlertDialogTest21)

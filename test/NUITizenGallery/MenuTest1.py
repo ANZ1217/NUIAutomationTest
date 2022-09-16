@@ -99,8 +99,8 @@ def runTest(stub, testFunc):
     return True
 
 
-def run():                                                         
-    with grpc.insecure_channel('localhost:50051') as channel:      
+def run():
+    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:
         stub = BootstrapStub(channel)
         runTest(stub, CheckMenuTestStart)
         runTest(stub, CheckMenuTest11)
@@ -108,5 +108,5 @@ def run():
         runTest(stub, CheckMenuTestEnd)
 
 
-if __name__ == '__main__':                                         
+if __name__ == '__main__':
     run()
