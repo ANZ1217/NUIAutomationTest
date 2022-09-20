@@ -75,5 +75,5 @@ def RenameImageFileNames():
                     os.rename(fileName, './{}/{}Expected{}.png'.format(dirName, m0.group(2), m0.group(3)))
 
 
-if __name__ == '__main__':                                         
+if __name__ == '__main__':
     RenameImageFileNames()

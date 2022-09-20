@@ -22,7 +22,7 @@ def LaunchAppTest(stub):
 
 def FindTCByInputText(stub, targetTC):
     response = stub.findElement(ReqFindElement(widgetType='TextField'))
-    if response.element is None: 
+    if response.element is None:
         print("can not find TextField")
         return False
 
@@ -30,7 +30,7 @@ def FindTCByInputText(stub, targetTC):
     stub.setValue(ReqSetValue(elementId=targetObj, stringValue=targetTC))
 
     response = stub.findElement(ReqFindElement(textField='Run'))
-    if response.element is None: 
+    if response.element is None:
         print("can not found Run button")
         return False
 
@@ -40,7 +40,7 @@ def FindTCByInputText(stub, targetTC):
     response = stub.findElements(ReqFindElements(textPartialMatch=targetTC))
     if len(response.elements) < 2:
         return False
-    
+
     targetObj = response.elements[1].elementId
 
     res = stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
@@ -64,7 +64,7 @@ def FindTCAndClickByFlicking(stub, targetTC):
                 time.sleep(3)
                 stub.click(ReqClick(type="ELEMENTID", elementId=tc.elementId))
                 return True
-        
+
         stub.flick(ReqFlick(startPoint=Point(x=160, y=459), endPoint=Point(x=160, y=130), durationMs=110))
         time.sleep(3)
 
@@ -91,7 +91,7 @@ def ReadScreenShotFile(stub, fileName):
     print('current dir is ', currentDir)
 
     # Create dir if neccessary.
-    path = currentDir + '/' + fileName		
+    path = currentDir + '/' + fileName
     os.makedirs(os.path.dirname(path), exist_ok=True)
 
     # Take screen shot.

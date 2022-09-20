@@ -19,7 +19,8 @@ def RunTest(pyFileName, ret):
     path_to_run = './'
     py_name = pyFileName + '.py'
 
-    args = ["python{}".format(python_version), "{}{}".format(path_to_run, py_name)]
+    args = ["python{}".format(python_version), "{}{}".format(path_to_run, py_name), "--no-exit"]
+    print(args)
     proc = subprocess.Popen(args, universal_newlines=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     try:
         output, error_ = proc.communicate(timeout=120)
@@ -29,7 +30,7 @@ def RunTest(pyFileName, ret):
 
     failedCount = 0
     if not error_:
-        #print(output)
+        print(output)
         items = re.findall("Testing result : .*$", output, re.MULTILINE)
         for x in items:
             if 'Testing result : True' not in x:
