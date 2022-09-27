@@ -34,12 +34,12 @@ def CheckMenuTest11(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Menu/MenuTest11.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Result/Menu/MenuTest11.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Menu/MenuTestExpected11.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Result/Menu/MenuTest11.png')
     if expectedScreenShot is None:
         return False
 
@@ -61,12 +61,12 @@ def CheckMenuTest12(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Menu/MenuTest12.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Result/Menu/MenuTest12.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Menu/MenuTestExpected12.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Result/Menu/MenuTest12.png')
     if expectedScreenShot is None:
         return False
 

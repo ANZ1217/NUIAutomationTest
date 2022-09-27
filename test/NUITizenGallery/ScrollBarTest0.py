@@ -35,12 +35,12 @@ def CheckScrollBarTest1(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollBar/ScrollBarTest01.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollBar/ScrollBarTest01.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollBar/ScrollBarTestExpected01.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollBar/ScrollBarTest01.png')
             if expectedScreenShot is None:
                 return False
 
@@ -59,12 +59,12 @@ def CheckScrollBarTest2(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollBar/ScrollBarTest02.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollBar/ScrollBarTest02.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollBar/ScrollBarTestExpected02.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollBar/ScrollBarTest02.png')
             if expectedScreenShot is None:
                 return False
 
@@ -83,12 +83,12 @@ def CheckScrollBarTest3(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollBar/ScrollBarTest03.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollBar/ScrollBarTest03.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollBar/ScrollBarTestExpected03.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollBar/ScrollBarTest03.png')
             if expectedScreenShot is None:
                 return False
 
@@ -113,12 +113,12 @@ def CheckScrollBarTest4(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollBar/ScrollBarTest04.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollBar/ScrollBarTest04.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollBar/ScrollBarTestExpected04.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollBar/ScrollBarTest04.png')
             if expectedScreenShot is None:
                 return False
 

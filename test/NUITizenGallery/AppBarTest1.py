@@ -36,12 +36,12 @@ def CheckAppBarTest11(stub):
     time.sleep(1)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="AppBar/AppBarTest11.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/AppBar/AppBarTest11.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='AppBar/AppBarTestExpected11.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/AppBar/AppBarTest11.png')
     if expectedScreenShot is None:
         return False
 
@@ -63,12 +63,12 @@ def CheckAppBarTest12(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="AppBar/AppBarTest12.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/AppBar/AppBarTest12.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='AppBar/AppBarTestExpected12.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/AppBar/AppBarTest12.png')
     if expectedScreenShot is None:
         return False
 

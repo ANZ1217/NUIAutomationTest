@@ -34,12 +34,12 @@ def CheckCheckBoxTest11(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="CheckBox/CheckBoxTest11.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CheckBox/CheckBoxTest11.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='CheckBox/CheckBoxTestExpected11.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/CheckBox/CheckBoxTest11.png')
     if expectedScreenShot is None:
         return False
 
@@ -61,12 +61,12 @@ def CheckCheckBoxTest12(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="CheckBox/CheckBoxTest12.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CheckBox/CheckBoxTest12.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='CheckBox/CheckBoxTestExpected12.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/CheckBox/CheckBoxTest12.png')
     if expectedScreenShot is None:
         return False
 

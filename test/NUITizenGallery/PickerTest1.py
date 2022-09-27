@@ -46,11 +46,11 @@ def PickerExecuteTestWithText(stub):
         print("can not find black")
         return False
 
-    screenShot = ReadScreenShotFile(stub, fileName="Picker/PickerTest11.png")
+    screenShot = ReadScreenShotFile(stub, fileName="Results/TestedImages/Picker/PickerTest11.png")
     if screenShot is None:
         return False
 
-    expectedScreenShot = ReadImageFile(fileName='Picker/PickerTestExpected11.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Picker/PickerTest11.png')
     if expectedScreenShot is None:
         return False
 
@@ -96,10 +96,10 @@ def PickerScrollTest(stub):
         response = stub.findElement(ReqFindElement(textField='Yellow'))
         if response.element:
             if tryCnt > 3:
-                screenShot = ReadScreenShotFile(stub, fileName="Picker/PickerTest12.png")
+                screenShot = ReadScreenShotFile(stub, fileName="Results/TestedImages/Picker/PickerTest12.png")
                 if screenShot is None:
                     return False
-                expectedScreenShot = ReadImageFile(fileName='Picker/PickerTestExpected12.png')
+                expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Picker/PickerTest12.png')
                 if expectedScreenShot is None:
                     return False
                 return CheckSSIM(answerImge=expectedScreenShot, testTargetImage=screenShot)

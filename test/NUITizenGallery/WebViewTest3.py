@@ -35,12 +35,12 @@ def CheckWebViewTest11(stub):
     time.sleep(2)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="WebView/WebViewTest31.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/WebView/WebViewTest31.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='WebView/WebViewTestExpected31.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/WebView/WebViewTest31.png')
     if expectedScreenShot is None:
         return False
 
@@ -57,12 +57,12 @@ def CheckWebViewTest12(stub):
     time.sleep(2)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="WebView/WebViewTest32.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/WebView/WebViewTest32.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='WebView/WebViewTestExpected32.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/WebView/WebViewTest32.png')
     if expectedScreenShot is None:
         return False
 
@@ -80,12 +80,12 @@ def CheckWebViewTest13(stub):
         time.sleep(2)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="WebView/WebViewTest33.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/WebView/WebViewTest33.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='WebView/WebViewTestExpected33.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/WebView/WebViewTest33.png')
     if expectedScreenShot is None:
         return False
 

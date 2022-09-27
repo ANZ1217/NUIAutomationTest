@@ -58,12 +58,12 @@ def CheckTimePickerTest1(stub):
             time.sleep(0.3)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="TimePicker/TimePickerTest01.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TimePicker/TimePickerTest01.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='TimePicker/TimePickerTestExpected01.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/TimePicker/TimePickerTest01.png')
             if expectedScreenShot is None:
                 return False
 
@@ -83,12 +83,12 @@ def CheckTimePickerTest2(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="TimePicker/TimePickerTest02.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TimePicker/TimePickerTest02.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='TimePicker/TimePickerTestExpected02.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/TimePicker/TimePickerTest02.png')
             if expectedScreenShot is None:
                 return False
 
@@ -128,12 +128,12 @@ def CheckTimePickerTest3(stub):
             time.sleep(0.3)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="TimePicker/TimePickerTest03.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TimePicker/TimePickerTest03.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='TimePicker/TimePickerTestExpected03.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/TimePicker/TimePickerTest03.png')
             if expectedScreenShot is None:
                 return False
 

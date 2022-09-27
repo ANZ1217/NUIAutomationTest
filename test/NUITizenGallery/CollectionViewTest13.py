@@ -35,12 +35,12 @@ def CheckCollectionViewGridGroupTest131(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="CollectionView/CollectionViewTest131.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest131.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='CollectionView/CollectionViewTestExpected131.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/CollectionView/CollectionViewTest131.png')
     if expectedScreenShot is None:
         return False
 
@@ -63,12 +63,12 @@ def CheckCollectionViewGridGroupTest132(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="CollectionView/CollectionViewTest132.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest132.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='CollectionView/CollectionViewTestExpected132.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/CollectionView/CollectionViewTest132.png')
     if expectedScreenShot is None:
         return False
 

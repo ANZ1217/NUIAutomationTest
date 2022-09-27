@@ -29,12 +29,12 @@ def CheckWidgetViewTest11(stub):
     time.sleep(1)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="WidgetView/WidgetViewTest11.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/WidgetView/WidgetViewTest11.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='WidgetView/WidgetViewTestExpected11.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/WidgetView/WidgetViewTest11.png')
     if expectedScreenShot is None:
         return False
 

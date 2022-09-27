@@ -33,12 +33,12 @@ def CheckSwitchTest1(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Switch/SwitchTest01.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Switch/SwitchTest01.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Switch/SwitchTestExpected01.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Switch/SwitchTest01.png')
             if expectedScreenShot is None:
                 return False
 
@@ -58,12 +58,12 @@ def CheckSwitchTest2(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Switch/SwitchTest02.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Switch/SwitchTest02.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Switch/SwitchTestExpected02.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Switch/SwitchTest02.png')
             if expectedScreenShot is None:
                 return False
 
@@ -83,12 +83,12 @@ def CheckSwitchTest3(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Switch/SwitchTest03.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Switch/SwitchTest03.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Switch/SwitchTestExpected03.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Switch/SwitchTest03.png')
             if expectedScreenShot is None:
                 return False
 
@@ -108,12 +108,12 @@ def CheckSwitchTest4(stub):
         time.sleep(1)
 
         # Take screenshot
-        screenShort = ReadScreenShotFile(stub, fileName="Switch/SwitchTest04.png")
+        screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Switch/SwitchTest04.png")
         if screenShort is None:
             return False
 
         # Read image file expected
-        expectedScreenShot = ReadImageFile(fileName='Switch/SwitchTestExpected04.png')
+        expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Switch/SwitchTest04.png')
         if expectedScreenShot is None:
             return False
 

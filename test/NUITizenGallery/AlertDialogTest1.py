@@ -36,12 +36,12 @@ def CheckAlertDialogTest11(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="AlertDialog/AlertDialogTest11.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/AlertDialog/AlertDialogTest11.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='AlertDialog/AlertDialogTestExpected11.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/AlertDialog/AlertDialogTest11.png')
     if expectedScreenShot is None:
         return False
 

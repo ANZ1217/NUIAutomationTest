@@ -36,12 +36,12 @@ def CheckTabViewTest1(stub):
     time.sleep(0.3)
 
     # Take ScreenShot.
-    screenShort = ReadScreenShotFile(stub, fileName="TabView/TabViewTest1.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TabView/TabViewTest1.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='TabView/TabViewTestExpected1.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/TabView/TabViewTest1.png')
     if expectedScreenShot is None:
         return False
 
@@ -61,12 +61,12 @@ def CheckTabViewTest2(stub):
     time.sleep(0.3)
 
     # Take ScreenShot.
-    screenShort = ReadScreenShotFile(stub, fileName="TabView/TabViewTest2.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TabView/TabViewTest2.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='TabView/TabViewTestExpected2.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/TabView/TabViewTest2.png')
     if expectedScreenShot is None:
         return False
 
@@ -85,12 +85,12 @@ def CheckTabViewTest3(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="TabView/TabViewTest3.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TabView/TabViewTest3.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='TabView/TabViewTestExpected3.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/TabView/TabViewTest3.png')
             if expectedScreenShot is None:
                 return False
 

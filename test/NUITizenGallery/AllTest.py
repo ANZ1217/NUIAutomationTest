@@ -86,11 +86,14 @@ def RunAllTest(ret):
         ret.write("<i>" + failedList + "</i><br>\n")
 
     f.write("</b></p>\n</body>\n")
-    print("Result log is written in ./result.hmtl")
+    print("Result log is written in ./Results/result.hmtl")
 
 if __name__ == '__main__':
-    os.makedirs("result", exist_ok=True)
-    f = open("./result/result_{}.html".format(time.strftime('%Y-%m-%d_%H:%M')), "w")
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    os.makedirs("Results", exist_ok=True)
+    f = open("./Results/result_{}.html".format(time.strftime('%Y-%m-%d_%H:%M')), "w")
     f.write("<html>\n")
     RunAllTest(f)
     f.write("</html>")

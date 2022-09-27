@@ -36,12 +36,12 @@ def CheckDialogPageTest11(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="DialogPage/DialogPageTest21.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/DialogPage/DialogPageTest21.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='DialogPage/DialogPageTestExpected21.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/DialogPage/DialogPageTest21.png')
     if expectedScreenShot is None:
         return False
 

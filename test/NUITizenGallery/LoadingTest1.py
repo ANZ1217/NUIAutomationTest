@@ -34,12 +34,12 @@ def CheckLoadingTest11(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Loading/LoadingTest11.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Loading/LoadingTest11.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Loading/LoadingTestExpected11.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Loading/LoadingTest11.png')
     if expectedScreenShot is None:
         return False
 
@@ -61,12 +61,12 @@ def CheckLoadingTest12(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Loading/LoadingTest12.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Loading/LoadingTest12.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Loading/LoadingTestExpected12.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Loading/LoadingTest12.png')
     if expectedScreenShot is None:
         return False
 
@@ -88,12 +88,12 @@ def CheckLoadingTest13(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Loading/LoadingTest13.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Loading/LoadingTest13.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Loading/LoadingTestExpected13.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Loading/LoadingTest13.png')
     if expectedScreenShot is None:
         return False
 

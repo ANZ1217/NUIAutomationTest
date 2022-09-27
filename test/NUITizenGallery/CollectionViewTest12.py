@@ -35,12 +35,12 @@ def CheckCollectionViewLinearTest121(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="CollectionView/CollectionViewTest121.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest121.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='CollectionView/CollectionViewTestExpected121.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/CollectionView/CollectionViewTest121.png')
     if expectedScreenShot is None:
         return False
 
@@ -63,12 +63,12 @@ def CheckCollectionViewLinearTest122(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="CollectionView/CollectionViewTest122.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest122.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='CollectionView/CollectionViewTestExpected122.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/CollectionView/CollectionViewTest122.png')
     if expectedScreenShot is None:
         return False
 

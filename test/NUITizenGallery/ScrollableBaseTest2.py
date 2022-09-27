@@ -32,12 +32,12 @@ def CheckScrollableBase21(stub):
             time.sleep(0.3)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollableBase/ScrollableBaseTest21.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollableBase/ScrollableBaseTest21.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollableBase/ScrollableBaseTestExpected21.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollableBase/ScrollableBaseTest21.png')
             if expectedScreenShot is None:
                 return False
 
@@ -55,12 +55,12 @@ def CheckScrollableBase22(stub):
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollableBase/ScrollableBaseTest22.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollableBase/ScrollableBaseTest22.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollableBase/ScrollableBaseTestExpected22.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollableBase/ScrollableBaseTest22.png')
             if expectedScreenShot is None:
                 return False
 
@@ -78,12 +78,12 @@ def CheckScrollableBase23(stub):
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollableBase/ScrollableBaseTest23.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollableBase/ScrollableBaseTest23.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollableBase/ScrollableBaseTestExpected23.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollableBase/ScrollableBaseTest23.png')
             if expectedScreenShot is None:
                 return False
 
@@ -101,12 +101,12 @@ def CheckScrollableBase24(stub):
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollableBase/ScrollableBaseTest24.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollableBase/ScrollableBaseTest24.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollableBase/ScrollableBaseTestExpected24.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollableBase/ScrollableBaseTest24.png')
             if expectedScreenShot is None:
                 return False
 
@@ -124,12 +124,12 @@ def CheckScrollableBase25(stub):
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollableBase/ScrollableBaseTest25.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollableBase/ScrollableBaseTest25.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollableBase/ScrollableBaseTestExpected25.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollableBase/ScrollableBaseTest25.png')
             if expectedScreenShot is None:
                 return False
 
@@ -147,12 +147,12 @@ def CheckScrollableBase26(stub):
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollableBase/ScrollableBaseTest26.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollableBase/ScrollableBaseTest26.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollableBase/ScrollableBaseTestExpected26.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollableBase/ScrollableBaseTest26.png')
             if expectedScreenShot is None:
                 return False
 

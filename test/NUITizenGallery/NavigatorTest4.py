@@ -30,12 +30,12 @@ def CheckNavigatorTest41(stub):
     time.sleep(1)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Navigator/NavigatorTest41.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest41.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Navigator/NavigatorTestExpected41.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Navigator/NavigatorTest41.png')
     if expectedScreenShot is None:
         return False
 
@@ -57,12 +57,12 @@ def CheckNavigatorTest42(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Navigator/NavigatorTest42.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest42.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Navigator/NavigatorTestExpected42.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Navigator/NavigatorTest42.png')
     if expectedScreenShot is None:
         return False
 
@@ -88,12 +88,12 @@ def CheckNavigatorTest43(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Navigator/NavigatorTest43.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest43.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Navigator/NavigatorTestExpected43.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Navigator/NavigatorTest43.png')
     if expectedScreenShot is None:
         return False
 
@@ -119,12 +119,12 @@ def CheckNavigatorTest44(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Navigator/NavigatorTest44.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest44.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Navigator/NavigatorTestExpected44.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Navigator/NavigatorTest44.png')
     if expectedScreenShot is None:
         return False
 
@@ -150,12 +150,12 @@ def CheckNavigatorTest45(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Navigator/NavigatorTest45.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest45.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Navigator/NavigatorTestExpected45.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Navigator/NavigatorTest45.png')
     if expectedScreenShot is None:
         return False
 

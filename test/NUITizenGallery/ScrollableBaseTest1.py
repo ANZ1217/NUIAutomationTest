@@ -31,12 +31,12 @@ def CheckScrollableBase11(stub):
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollableBase/ScrollableBaseTest11.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollableBase/ScrollableBaseTest11.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollableBase/ScrollableBaseTestExpected11.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollableBase/ScrollableBaseTest11.png')
             if expectedScreenShot is None:
                 return False
 
@@ -55,12 +55,12 @@ def CheckScrollableBase12(stub):
     FLICK_RIGHT(stub)
 
     # Take screenshot
-    screenShort = ReadScreenShotFile(stub, fileName="ScrollableBase/ScrollableBaseTest12.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollableBase/ScrollableBaseTest12.png")
     if screenShort is None:
         return False
 
     # Read image file expected
-    expectedScreenShot = ReadImageFile(fileName='ScrollableBase/ScrollableBaseTestExpected12.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollableBase/ScrollableBaseTest12.png')
     if expectedScreenShot is None:
         return False
 

@@ -37,12 +37,12 @@ def CheckButtonTest81(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Button/ButtonTest81.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Button/ButtonTest81.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Button/ButtonTestExpected81.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Button/ButtonTest81.png')
     if expectedScreenShot is None:
         return False
 
@@ -64,12 +64,12 @@ def CheckButtonTest82(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Button/ButtonTest82.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Button/ButtonTest82.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Button/ButtonTestExpected82.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Button/ButtonTest82.png')
     if expectedScreenShot is None:
         return False
 
@@ -91,12 +91,12 @@ def CheckButtonTest83(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Button/ButtonTest83.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Button/ButtonTest83.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Button/ButtonTestExpected83.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Button/ButtonTest83.png')
     if expectedScreenShot is None:
         return False
 
@@ -118,12 +118,12 @@ def CheckButtonTest84(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Button/ButtonTest84.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Button/ButtonTest84.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Button/ButtonTestExpected84.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Button/ButtonTest84.png')
     if expectedScreenShot is None:
         return False
 

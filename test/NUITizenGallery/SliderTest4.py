@@ -46,12 +46,12 @@ def CheckSliderTest41(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest41.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest41.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected41.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest41.png')
             if expectedScreenShot is None:
                 return False
 
@@ -84,12 +84,12 @@ def CheckSliderTest42(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest42.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest42.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected42.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest42.png')
             if expectedScreenShot is None:
                 return False
 
@@ -122,12 +122,12 @@ def CheckSliderTest43(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest43.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest43.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected43.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest43.png')
             if expectedScreenShot is None:
                 return False
 

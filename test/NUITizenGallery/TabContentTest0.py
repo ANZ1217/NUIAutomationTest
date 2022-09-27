@@ -32,12 +32,12 @@ def CheckTabContentTest1(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="TabContent/TabContentTest01.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TabContent/TabContentTest01.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='TabContent/TabContentTestExpected01.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/TabContent/TabContentTest01.png')
             if expectedScreenShot is None:
                 return False
 

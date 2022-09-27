@@ -36,12 +36,12 @@ def CheckRadioButton1(stub):
     time.sleep(0.3)
 
     # Take ScreenShot.
-    screenShort = ReadScreenShotFile(stub, fileName="RadioButton/RadioButtonTest1.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/RadioButton/RadioButtonTest1.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='RadioButton/RadioButtonTestExpected1.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/RadioButton/RadioButtonTest1.png')
     if expectedScreenShot is None:
         return False
 

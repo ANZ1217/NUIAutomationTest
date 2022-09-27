@@ -29,12 +29,12 @@ def CheckNotificationTest3(stub):
     time.sleep(4)
 
     # Take screenshot
-    screenShort = ReadScreenShotFile(stub, fileName="Notification/NotificationTest3.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Notification/NotificationTest3.png")
     if screenShort is None:
         return False
 
     # Read image file expected
-    expectedScreenShot = ReadImageFile(fileName='Notification/NotificationTestExpected3.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Notification/NotificationTest3.png')
     if expectedScreenShot is None:
         return False
 
@@ -54,12 +54,12 @@ def CheckNotificationTest4(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Notification/NotificationTest4.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Notification/NotificationTest4.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Notification/NotificationTestExpected4.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Notification/NotificationTest4.png')
             if expectedScreenShot is None:
                 return False
 
