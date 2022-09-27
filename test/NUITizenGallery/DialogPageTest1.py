@@ -73,11 +73,11 @@ def CheckDialogPageTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
-    return True
+    print("Testing {} result : {}".format(testFunc.__name__, result))
 
+    return True
 
 def run():
     with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:

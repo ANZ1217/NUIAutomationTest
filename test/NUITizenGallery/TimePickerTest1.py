@@ -33,7 +33,7 @@ def CheckTimePickerTest1(stub):
     res = stub.findElements(ReqFindElements(widgetType='Button'))
     for elem in res.elements:
         if "Set" in elem.text:
-            print("elem : ", elem)
+            #print("elem : ", elem)
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
             time.sleep(1)
 
@@ -144,8 +144,8 @@ def CheckTimePickerTest3(stub):
 def GetGeometryInfo(stub):
     res = stub.findElements(ReqFindElements(widgetType='TimePicker'))
     for elem in res.elements:
-        if "TimePicker" in elem.text:
-            print("elem: ", elem)
+        #if "TimePicker" in elem.text:
+        #print("elem: ", elem)
         # geometry
         # {
         #     x: 660
@@ -176,9 +176,10 @@ def CheckTimePickerTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 

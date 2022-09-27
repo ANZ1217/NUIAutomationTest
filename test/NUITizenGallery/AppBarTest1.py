@@ -109,9 +109,10 @@ def CheckAppBarTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -130,5 +131,4 @@ if __name__ == '__main__':
     parser.add_argument('--no-exit', dest='exit', action='store_false')
     parser.set_defaults(exit=True)
     args = parser.parse_args()
-    print("arg : ", args.exit)
     run()

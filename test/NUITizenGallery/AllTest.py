@@ -6,7 +6,6 @@ import subprocess
 import time
 import argparse
 
-
 # Testcases list.
 def GetTCList():
     with open('./tclist.txt') as file:
@@ -21,7 +20,7 @@ def RunTest(pyFileName, ret):
     py_name = pyFileName + '.py'
 
     args = ["python{}".format(python_version), "{}{}".format(path_to_run, py_name), "--no-exit"]
-    print(args)
+    #print(args)
     proc = subprocess.Popen(args, universal_newlines=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     try:
         output, error_ = proc.communicate(timeout=120)
@@ -31,14 +30,16 @@ def RunTest(pyFileName, ret):
 
     failedCount = 0
     if not error_:
-        print(output)
-        items = re.findall("Testing result : .*$", output, re.MULTILINE)
-        for x in items:
-            if 'Testing result : True' not in x:
-                print("\033[91m" + x + "\033[0m")
+        #print(output)
+        outputlines = output.split('\n')
+        for printline in outputlines:
+            if 'True' in printline:
+                print("\033[92m" + printline + "\033[0m")
+            elif 'False' in printline:
+                print("\033[91m" + printline + "\033[0m")
                 failedCount+=1
             else:
-                print("\033[92m" + x + "\033[0m")
+                print(printline)
     else:
         print("\033[41m\033[37m"+ error_ + "\033[0m")
         failedCount+=1
@@ -80,21 +81,23 @@ def RunAllTest(ret):
     print("\033[48;5;33m\033[38;5;235m" + resultTitle + "\033[0m")
     ret.write("<p><b>" + resultTitle+ "<br>\n")
     print("\033[92m" + pCount + ", \033[91m" + fCount + "\033[0m")
-    ret.write("<span style=\"color: #006600\">" + pCount + "<\span>, <span style=\"color: #CC0000\">" + fCount + "<span><br>\n")
+    ret.write("<span style=\"color: #006600\">" + pCount + "</span>, <span style=\"color: #CC0000\">" + fCount + "<span><br>\n")
     if failedCount != 0:
         failedList = "Failed Test : [{}]".format(failedTest)
         print("\033[38;5;214m" + failedList + "\033[0m")
         ret.write("<i>" + failedList + "</i><br>\n")
 
     f.write("</b></p>\n</body>\n")
-    print("Result log is written in ./Results/result.hmtl")
+    print("Result log is written in ./Results/result_{}.hmtl".format(currentTime))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Test Options')
     parser.add_argument('--exit', dest='exit', action='store_true')
     parser.add_argument('--no-exit', dest='exit', action='store_false')
-    os.makedirs("Results", exist_ok=True)
-    f = open("./Results/result_{}.html".format(time.strftime('%Y-%m-%d_%H:%M')), "w")
+    #os.makedirs("Results", exist_ok=True)
+    global currentTime
+    currentTime = time.strftime('%Y-%m-%d_%H:%M')
+    f = open("./Results/result_{}.html".format(currentTime), "w")
     f.write("<html>\n")
     RunAllTest(f)
     f.write("</html>")

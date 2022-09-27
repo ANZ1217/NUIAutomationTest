@@ -28,7 +28,7 @@ def CheckSliderTest31(stub):
         return False
 
     res = stub.findElements(ReqFindElements(widgetType="Slider", isShowing=True))
-    print("==== : ", res)
+    #print("==== : ", res)
     for slider in res.elements:
         if "slider1" in slider.text:
             stub.click(ReqClick(type="ELEMENTID", elementId=slider.elementId))
@@ -263,9 +263,10 @@ def CheckSliderTest3End(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 

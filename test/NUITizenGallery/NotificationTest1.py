@@ -96,9 +96,10 @@ def ReLaunch(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 

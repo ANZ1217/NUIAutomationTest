@@ -108,15 +108,18 @@ def defaultSetup(stub):
 def defaultTearDown(stub):
     stub.closeApp(ReqCloseApp(packageName='org.tizen.example.NUITizenGallery'))
 
+
 def runTest(stub, testFunc, setup=defaultSetup, tearDown=defaultTearDown, alwaySucceed=False):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
 
     setup(stub)
     result = testFunc(stub)
     tearDown(stub)
 
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     if alwaySucceed: return True
+
 
 def runTestWithoutSetupAndTearDown(stub, testFunc, setup=defaultSetup, tearDown=defaultTearDown):
     def Empty(stub):

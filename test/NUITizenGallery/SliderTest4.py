@@ -28,7 +28,7 @@ def CheckSliderTest41(stub):
     res = stub.findElements(ReqFindElements(widgetType="Slider"))
     for slider in res.elements:
         if "slider41" in slider.text:
-            print("====== slider41 =======:", slider)
+            #print("====== slider41 =======:", slider)
             stub.click(ReqClick(type="ELEMENTID", elementId=slider.elementId))
             time.sleep(0.3)
 
@@ -66,7 +66,7 @@ def CheckSliderTest42(stub):
     res = stub.findElements(ReqFindElements(widgetType="Slider"))
     for slider in res.elements:
         if "slider42" in slider.text:
-            print("====== slider42 =======:", slider)
+            #print("====== slider42 =======:", slider)
             stub.click(ReqClick(type="ELEMENTID", elementId=slider.elementId))
             time.sleep(0.3)
 
@@ -104,7 +104,7 @@ def CheckSliderTest43(stub):
     res = stub.findElements(ReqFindElements(widgetType="Slider"))
     for slider in res.elements:
         if "slider43" in slider.text:
-            print("====== slider43 =======:", slider)
+            #print("====== slider43 =======:", slider)
             stub.click(ReqClick(type="ELEMENTID", elementId=slider.elementId))
             time.sleep(0.3)
 
@@ -150,9 +150,10 @@ def CheckSliderTest4End(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
