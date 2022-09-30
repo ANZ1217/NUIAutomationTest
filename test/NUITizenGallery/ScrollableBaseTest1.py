@@ -5,6 +5,7 @@ from aurum_pb2 import *
 from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import time
+import argparse
 
 isScrollableBase1PageOpened = False
 
@@ -30,12 +31,12 @@ def CheckScrollableBase11(stub):
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollableBase/ScrollableBaseTest11.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollableBase/ScrollableBaseTest11.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollableBase/ScrollableBaseTestExpected11.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollableBase/ScrollableBaseTest11.png')
             if expectedScreenShot is None:
                 return False
 
@@ -54,12 +55,12 @@ def CheckScrollableBase12(stub):
     FLICK_RIGHT(stub)
 
     # Take screenshot
-    screenShort = ReadScreenShotFile(stub, fileName="ScrollableBase/ScrollableBaseTest12.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollableBase/ScrollableBaseTest12.png")
     if screenShort is None:
         return False
 
     # Read image file expected
-    expectedScreenShot = ReadImageFile(fileName='ScrollableBase/ScrollableBaseTestExpected12.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollableBase/ScrollableBaseTest12.png')
     if expectedScreenShot is None:
         return False
 
@@ -114,9 +115,10 @@ def CheckScrollableBase1TestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -130,4 +132,9 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

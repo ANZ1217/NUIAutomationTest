@@ -6,6 +6,7 @@ from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import grpc
 import time
+import argparse
 
 isWebViewOpened = False
 
@@ -34,12 +35,12 @@ def CheckWebViewTest11(stub):
     time.sleep(2)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="WebView/WebViewTest31.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/WebView/WebViewTest31.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='WebView/WebViewTestExpected31.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/WebView/WebViewTest31.png')
     if expectedScreenShot is None:
         return False
 
@@ -56,12 +57,12 @@ def CheckWebViewTest12(stub):
     time.sleep(2)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="WebView/WebViewTest32.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/WebView/WebViewTest32.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='WebView/WebViewTestExpected32.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/WebView/WebViewTest32.png')
     if expectedScreenShot is None:
         return False
 
@@ -79,12 +80,12 @@ def CheckWebViewTest13(stub):
         time.sleep(2)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="WebView/WebViewTest33.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/WebView/WebViewTest33.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='WebView/WebViewTestExpected33.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/WebView/WebViewTest33.png')
     if expectedScreenShot is None:
         return False
 
@@ -102,14 +103,15 @@ def CheckWebViewTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
-def run():                                                         
-    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:      
+def run():
+    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:
         stub = BootstrapStub(channel)
         runTest(stub, CheckWebViewTestStart)
         runTest(stub, CheckWebViewTest11)
@@ -118,5 +120,10 @@ def run():
         runTest(stub, CheckWebViewTestEnd)
 
 
-if __name__ == '__main__':                                         
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

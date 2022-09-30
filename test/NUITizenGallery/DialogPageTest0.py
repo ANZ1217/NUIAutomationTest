@@ -5,6 +5,7 @@ from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import grpc
 import time
+import argparse
 
 isDialogPageOpened = False
 
@@ -36,12 +37,12 @@ def CheckDialogPageTest1(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="DialogPage/DialogPageTest01.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/DialogPage/DialogPageTest01.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='DialogPage/DialogPageTestExpected01.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/DialogPage/DialogPageTest01.png')
     if expectedScreenShot is None:
         return False
 
@@ -74,19 +75,25 @@ def CheckDialogPageTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
-def run():                                                         
-    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:      
+def run():
+    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:
         stub = BootstrapStub(channel)
         runTest(stub, CheckDialogPageTestStart)
         runTest(stub, CheckDialogPageTest1)
         runTest(stub, CheckDialogPageTestEnd)
 
 
-if __name__ == '__main__':                                         
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

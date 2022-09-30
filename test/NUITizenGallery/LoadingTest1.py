@@ -5,6 +5,7 @@ from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import grpc
 import time
+import argparse
 
 isLoadingPageOpened = False
 
@@ -33,12 +34,12 @@ def CheckLoadingTest11(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Loading/LoadingTest11.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Loading/LoadingTest11.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Loading/LoadingTestExpected11.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Loading/LoadingTest11.png')
     if expectedScreenShot is None:
         return False
 
@@ -60,12 +61,12 @@ def CheckLoadingTest12(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Loading/LoadingTest12.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Loading/LoadingTest12.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Loading/LoadingTestExpected12.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Loading/LoadingTest12.png')
     if expectedScreenShot is None:
         return False
 
@@ -87,12 +88,12 @@ def CheckLoadingTest13(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Loading/LoadingTest13.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Loading/LoadingTest13.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Loading/LoadingTestExpected13.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Loading/LoadingTest13.png')
     if expectedScreenShot is None:
         return False
 
@@ -120,14 +121,15 @@ def CheckLoadingTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
-def run():                                                         
-    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:      
+def run():
+    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:
         stub = BootstrapStub(channel)
         runTest(stub, CheckLoadingTestStart)
         runTest(stub, CheckLoadingTest11)
@@ -136,5 +138,10 @@ def run():
         runTest(stub, CheckLoadingTestEnd)
 
 
-if __name__ == '__main__':                                         
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

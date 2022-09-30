@@ -5,6 +5,7 @@ from aurum_pb2 import *
 from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import time
+import argparse
 
 isRadioButtonPageOpened = False
 
@@ -35,12 +36,12 @@ def CheckRadioButton1(stub):
     time.sleep(0.3)
 
     # Take ScreenShot.
-    screenShort = ReadScreenShotFile(stub, fileName="RadioButton/RadioButtonTest1.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/RadioButton/RadioButtonTest1.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='RadioButton/RadioButtonTestExpected1.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/RadioButton/RadioButtonTest1.png')
     if expectedScreenShot is None:
         return False
 
@@ -63,9 +64,10 @@ def CheckRadioButtonTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -78,4 +80,9 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

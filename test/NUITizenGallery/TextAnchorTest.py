@@ -4,6 +4,7 @@ from aurum_pb2_grpc import BootstrapStub
 import logging
 import grpc
 import time
+import argparse
 
 # Check the object in the screen(TM1) or not
 def inScreen(size):
@@ -51,7 +52,7 @@ def LabelAnchorClickTest(stub):
     response = stub.findElement(ReqFindElement(textField='Click TextLabel Anchor'))
     if len(response.elements) <= 0: return False
 
-    # 2 
+    # 2
     anchorX = response.elements[0].geometry.x + 10
     anchorY = response.elements[0].geometry.y + 10
 
@@ -73,7 +74,7 @@ def FieldAnchorClickTest(stub):
     response = stub.findElement(ReqFindElement(textField='Click TextField Anchor'))
     if len(response.elements) <= 0: return False
 
-    # 2 
+    # 2
     anchorX = response.elements[0].geometry.x + 10
     anchorY = response.elements[0].geometry.y + 10
 
@@ -95,7 +96,7 @@ def EditorAnchorClickTest(stub):
     response = stub.findElement(ReqFindElement(textField='Click TextEditor Anchor'))
     if len(response.elements) <= 0: return False
 
-    # 2 
+    # 2
     anchorX = response.elements[0].geometry.x + 10
     anchorY = response.elements[0].geometry.y + 10
 
@@ -128,13 +129,14 @@ def defaultTearDown(stub):
     stub.closeApp(ReqCloseApp(packageName='org.tizen.example.NUITizenGallery'))
 
 def runTest(stub, testFunc, setup=defaultSetup, tearDown=defaultTearDown, alwaySucceed=False):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
 
     setup(stub)
     result = testFunc(stub)
     tearDown(stub)
 
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     if alwaySucceed: return True
 
 def runTestWithoutSetupAndTearDown(stub, testFunc, setup=defaultSetup, tearDown=defaultTearDown):
@@ -155,5 +157,10 @@ def run():
         runTestWithoutSetupAndTearDown(stub, closeAppTest)
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     logging.basicConfig()
     run()

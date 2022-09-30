@@ -5,6 +5,7 @@ from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import grpc
 import time
+import argparse
 
 isCollectionViewGridPageOpened = False
 
@@ -34,12 +35,12 @@ def CheckCollectionViewGridTest101(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="CollectionView/CollectionViewTest101.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest101.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='CollectionView/CollectionViewTestExpected101.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/CollectionView/CollectionViewTest101.png')
     if expectedScreenShot is None:
         return False
 
@@ -62,12 +63,12 @@ def CheckCollectionViewGridTest102(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="CollectionView/CollectionViewTest102.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest102.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='CollectionView/CollectionViewTestExpected102.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/CollectionView/CollectionViewTest102.png')
     if expectedScreenShot is None:
         return False
 
@@ -93,14 +94,15 @@ def CheckCollectionViewGridTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
-def run():                                                         
-    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:      
+def run():
+    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:
         stub = BootstrapStub(channel)
         runTest(stub, CheckCollectionViewGridTestStart)
         runTest(stub, CheckCollectionViewGridTest101)
@@ -108,5 +110,10 @@ def run():
         runTest(stub, CheckCollectionViewGridTestEnd)
 
 
-if __name__ == '__main__':                                         
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

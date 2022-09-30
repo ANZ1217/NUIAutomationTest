@@ -5,6 +5,7 @@ from aurum_pb2 import *
 from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import time
+import argparse
 
 isSwitchPageOpened = False
 
@@ -32,12 +33,12 @@ def CheckSwitchTest1(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Switch/SwitchTest01.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Switch/SwitchTest01.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Switch/SwitchTestExpected01.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Switch/SwitchTest01.png')
             if expectedScreenShot is None:
                 return False
 
@@ -57,12 +58,12 @@ def CheckSwitchTest2(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Switch/SwitchTest02.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Switch/SwitchTest02.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Switch/SwitchTestExpected02.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Switch/SwitchTest02.png')
             if expectedScreenShot is None:
                 return False
 
@@ -82,12 +83,12 @@ def CheckSwitchTest3(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Switch/SwitchTest03.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Switch/SwitchTest03.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Switch/SwitchTestExpected03.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Switch/SwitchTest03.png')
             if expectedScreenShot is None:
                 return False
 
@@ -107,12 +108,12 @@ def CheckSwitchTest4(stub):
         time.sleep(1)
 
         # Take screenshot
-        screenShort = ReadScreenShotFile(stub, fileName="Switch/SwitchTest04.png")
+        screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Switch/SwitchTest04.png")
         if screenShort is None:
             return False
 
         # Read image file expected
-        expectedScreenShot = ReadImageFile(fileName='Switch/SwitchTestExpected04.png')
+        expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Switch/SwitchTest04.png')
         if expectedScreenShot is None:
             return False
 
@@ -135,9 +136,10 @@ def CheckSwitchTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -154,4 +156,9 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

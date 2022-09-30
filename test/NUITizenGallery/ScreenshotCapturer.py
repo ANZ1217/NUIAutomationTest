@@ -6,6 +6,7 @@ import re
 import shutil
 import subprocess
 import datetime
+import argparse
 
 # Testcases list.
 def GetTCList():
@@ -15,16 +16,20 @@ def GetTCList():
         return lines
 
 
-def RemoveAllDirs(tcFileNameList):
+def RemoveAllDirs(tcFileNameList, target):
     for item in tcFileNameList:
         print("================{}=======================".format(item))
         r = re.compile("([a-zA-Z]+)Test([0-9]*)")
         m = r.match(item)
         dirName = m.group(1)
-        print('Directory {} is removed.'.format(dirName))
-        path = './'+dirName
-        if os.path.isdir(path):
-            shutil.rmtree(path)  # remove dir and all contains
+        path1 = './Results/ExpectedImages/{}'.format(dirName)
+        if os.path.isdir(path1):
+            shutil.rmtree(path1)  # remove dir and all contains
+            print('Directory {} is removed.'.format(path1))
+        path2 = './ExpectedImages/{}/{}.format(target, dirName)'
+        if os.path.isdir(path2):
+            shutil.rmtree(path2)  # remove dir and all contains
+            print('Directory {} is removed.'.format(path2))
 
 
 def RunTest(pyFileName):
@@ -47,13 +52,15 @@ def RunTest(pyFileName):
     return True
 
 
-def RenameImageFileNames():
+def RenameImageFileNames(target):
     passedCount = 0
     failedCount = 0
     tcFileNameList = GetTCList()
 
+    print("{} Screenshot will be generated".format(target))
+
     # Remove all directories.
-    RemoveAllDirs(tcFileNameList)
+    RemoveAllDirs(tcFileNameList, target)
 
     # Generate screenshots expected.
     for item in tcFileNameList:
@@ -62,18 +69,25 @@ def RenameImageFileNames():
 
         ret = RunTest(item)
         if ret:
-            r = re.compile("([a-zA-Z]+)Test([0-9]+)")
-            m = r.match(item)
+            #r = re.compile("([a-zA-Z]+)Test([0-9]+)")
+            m = re.match("([a-zA-Z]+)Test([0-9]+)", item)
             dirName = m.group(1)
             #print(dirName)
-            imageList = glob.glob("./{}/*.png".format(dirName))
-            for fileName in imageList:
-                print("File {} would be renamed.".format(fileName))
-                if 'Expected' not in fileName:
-                    r0 = re.compile("./([a-zA-Z]+)/([a-zA-Z]+)([0-9]+).png")
-                    m0 = r0.match(fileName)
-                    os.rename(fileName, './{}/{}Expected{}.png'.format(dirName, m0.group(2), m0.group(3)))
+            imageList = glob.glob("./Results/TestedImages/*")
+            for testPath in imageList:
+                print("{} copying".format(testPath))
+                destPath = "./Results/ExpectedImages/{}".format(dirName)
+                print(destPath)
+                shutil.copytree(testPath, destPath, dirs_exist_ok=True)
+                print("removing {}".format(testPath))
+                if os.path.isdir(testPath):
+                    shutil.rmtree(testPath)
+
+        shutil.copytree("./Results/ExpectedImages", "./ExpectedImages/{}".format(target), dirs_exist_ok=True)
 
 
-if __name__ == '__main__':                                         
-    RenameImageFileNames()
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Target Options')
+    parser.add_argument('--target', type=str, help='optional target name', default="Default")
+    args = parser.parse_args()
+    RenameImageFileNames(args.target)

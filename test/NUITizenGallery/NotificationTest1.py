@@ -5,6 +5,7 @@ from aurum_pb2 import *
 from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import time
+import argparse
 
 isNotificationPageOpened = False
 
@@ -31,12 +32,12 @@ def CheckNotificationTest1(stub):
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Notification/NotificationTest1.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Notification/NotificationTest1.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Notification/NotificationTestExpected1.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Notification/NotificationTest1.png')
             if expectedScreenShot is None:
                 return False
 
@@ -55,12 +56,12 @@ def CheckNotificationTest2(stub):
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Notification/NotificationTest2.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Notification/NotificationTest2.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Notification/NotificationTestExpected2.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Notification/NotificationTest2.png')
             if expectedScreenShot is None:
                 return False
 
@@ -95,9 +96,10 @@ def ReLaunch(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -112,4 +114,9 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

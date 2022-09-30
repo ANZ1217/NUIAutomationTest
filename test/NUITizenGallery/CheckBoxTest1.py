@@ -5,6 +5,7 @@ from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import grpc
 import time
+import argparse
 
 isCheckBoxPageOpened = False
 
@@ -33,12 +34,12 @@ def CheckCheckBoxTest11(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="CheckBox/CheckBoxTest11.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CheckBox/CheckBoxTest11.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='CheckBox/CheckBoxTestExpected11.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/CheckBox/CheckBoxTest11.png')
     if expectedScreenShot is None:
         return False
 
@@ -60,12 +61,12 @@ def CheckCheckBoxTest12(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="CheckBox/CheckBoxTest12.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CheckBox/CheckBoxTest12.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='CheckBox/CheckBoxTestExpected12.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/CheckBox/CheckBoxTest12.png')
     if expectedScreenShot is None:
         return False
 
@@ -93,14 +94,15 @@ def CheckCheckBoxTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
-def run():                                                         
-    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:      
+def run():
+    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:
         stub = BootstrapStub(channel)
         runTest(stub, CheckCheckBoxTestStart)
         runTest(stub, CheckCheckBoxTest11)
@@ -108,5 +110,10 @@ def run():
         runTest(stub, CheckCheckBoxTestEnd)
 
 
-if __name__ == '__main__':                                         
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

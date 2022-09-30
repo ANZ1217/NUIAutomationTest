@@ -7,6 +7,7 @@ from aurum_pb2_grpc import BootstrapStub
 import logging
 import grpc
 import time
+import argparse
 from NUIGalleryTestUtils import *
 
 def inScreen(size):
@@ -18,7 +19,7 @@ def inScreen(size):
 
 def PickerExecuteTestWithText(stub):
     response = stub.findElement(ReqFindElement(widgetType='TextField'))
-    if response.element is None: 
+    if response.element is None:
         print("can not find TextField")
         return False
 
@@ -27,7 +28,7 @@ def PickerExecuteTestWithText(stub):
     stub.setValue(ReqSetValue(elementId=targetObj, stringValue=testString))
 
     response = stub.findElement(ReqFindElement(textField='Run'))
-    if response.element is None: 
+    if response.element is None:
         print("can not found Run button")
         return False
 
@@ -35,21 +36,21 @@ def PickerExecuteTestWithText(stub):
     stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
 
     response = stub.findElement(ReqFindElement(textField='PickerTest1, '))
-    if response.element is None: 
+    if response.element is None:
         return False
     targetObj = response.element.elementId
     res = stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
 
     response = stub.findElements(ReqFindElements(textField='Black'))
-    if len(response.elements) <= 0: 
+    if len(response.elements) <= 0:
         print("can not find black")
         return False
 
-    screenShot = ReadScreenShotFile(stub, fileName="Picker/PickerTest11.png")
+    screenShot = ReadScreenShotFile(stub, fileName="Results/TestedImages/Picker/PickerTest11.png")
     if screenShot is None:
         return False
 
-    expectedScreenShot = ReadImageFile(fileName='Picker/PickerTestExpected11.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Picker/PickerTest11.png')
     if expectedScreenShot is None:
         return False
 
@@ -76,7 +77,7 @@ def PickerScrollTest(stub):
     if len(response.elements) <= 0: return False
 
     responseText = stub.findElements(ReqFindElements(textPartialMatch='Black'))
-    if responseText.elements is None: 
+    if responseText.elements is None:
         print("can not find Black")
         return False
 
@@ -95,13 +96,13 @@ def PickerScrollTest(stub):
         response = stub.findElement(ReqFindElement(textField='Yellow'))
         if response.element:
             if tryCnt > 3:
-                screenShot = ReadScreenShotFile(stub, fileName="Picker/PickerTest12.png")
+                screenShot = ReadScreenShotFile(stub, fileName="Results/TestedImages/Picker/PickerTest12.png")
                 if screenShot is None:
                     return False
-                expectedScreenShot = ReadImageFile(fileName='Picker/PickerTestExpected12.png')
+                expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Picker/PickerTest12.png')
                 if expectedScreenShot is None:
                     return False
-                return CheckSSIM(answerImge=expectedScreenShot, testTargetImage=screenShot)                
+                return CheckSSIM(answerImge=expectedScreenShot, testTargetImage=screenShot)
 
     return False
 
@@ -130,13 +131,14 @@ def defaultTearDown(stub):
     stub.closeApp(ReqCloseApp(packageName='org.tizen.example.NUITizenGallery'))
 
 def runTest(stub, testFunc, setup=defaultSetup, tearDown=defaultTearDown, alwaySucceed=False):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
 
     setup(stub)
     result = testFunc(stub)
     tearDown(stub)
 
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     if alwaySucceed: return True
 
 def runTestWithoutSetupAndTearDown(stub, testFunc, setup=defaultSetup, tearDown=defaultTearDown):
@@ -155,5 +157,10 @@ def run():
         runTestWithoutSetupAndTearDown(stub, closeAppTest)
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     logging.basicConfig()
     run()

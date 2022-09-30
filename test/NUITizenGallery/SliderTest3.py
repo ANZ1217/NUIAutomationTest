@@ -5,6 +5,7 @@ from aurum_pb2 import *
 from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import time
+import argparse
 
 isSliderTest3PageOpened = False
 # XPos = 0
@@ -27,7 +28,7 @@ def CheckSliderTest31(stub):
         return False
 
     res = stub.findElements(ReqFindElements(widgetType="Slider", isShowing=True))
-    print("==== : ", res)
+    #print("==== : ", res)
     for slider in res.elements:
         if "slider1" in slider.text:
             stub.click(ReqClick(type="ELEMENTID", elementId=slider.elementId))
@@ -47,12 +48,12 @@ def CheckSliderTest31(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest31.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest31.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected31.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest31.png')
             if expectedScreenShot is None:
                 return False
 
@@ -84,12 +85,12 @@ def CheckSliderTest32(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest32.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest32.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected32.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest32.png')
             if expectedScreenShot is None:
                 return False
 
@@ -121,12 +122,12 @@ def CheckSliderTest33(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest33.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest33.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected33.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest33.png')
             if expectedScreenShot is None:
                 return False
 
@@ -158,12 +159,12 @@ def CheckSliderTest34(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest34.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest34.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected34.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest34.png')
             if expectedScreenShot is None:
                 return False
 
@@ -195,12 +196,12 @@ def CheckSliderTest35(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest35.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest35.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected35.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest35.png')
             if expectedScreenShot is None:
                 return False
 
@@ -234,12 +235,12 @@ def CheckSliderTest36(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest36.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest36.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected36.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest36.png')
             if expectedScreenShot is None:
                 return False
 
@@ -262,9 +263,10 @@ def CheckSliderTest3End(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -282,4 +284,9 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

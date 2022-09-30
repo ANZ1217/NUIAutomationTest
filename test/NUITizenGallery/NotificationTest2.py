@@ -5,6 +5,7 @@ from aurum_pb2 import *
 from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import time
+import argparse
 
 isNotificationPageOpened = False
 
@@ -28,12 +29,12 @@ def CheckNotificationTest3(stub):
     time.sleep(4)
 
     # Take screenshot
-    screenShort = ReadScreenShotFile(stub, fileName="Notification/NotificationTest3.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Notification/NotificationTest3.png")
     if screenShort is None:
         return False
 
     # Read image file expected
-    expectedScreenShot = ReadImageFile(fileName='Notification/NotificationTestExpected3.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Notification/NotificationTest3.png')
     if expectedScreenShot is None:
         return False
 
@@ -53,12 +54,12 @@ def CheckNotificationTest4(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Notification/NotificationTest4.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Notification/NotificationTest4.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Notification/NotificationTestExpected4.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Notification/NotificationTest4.png')
             if expectedScreenShot is None:
                 return False
 
@@ -91,9 +92,10 @@ def ReLaunch(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -110,4 +112,9 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

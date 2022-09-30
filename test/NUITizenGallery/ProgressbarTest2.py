@@ -5,6 +5,7 @@ from aurum_pb2 import *
 from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import time
+import argparse
 
 isProgressbarPageOpened = False
 SCREEN_WIDTH = 0
@@ -35,12 +36,12 @@ def CheckProgressbarTest1(stub):
             time.sleep(4)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Progressbar/ProgressbarTest1.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Progressbar/ProgressbarTest1.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Progressbar/ProgressbarTestExpected1.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Progressbar/ProgressbarTest1.png')
             if expectedScreenShot is None:
                 return False
 
@@ -67,12 +68,12 @@ def CheckProgressbarTest2(stub):
         time.sleep(1)
 
         # Take screenshot
-        screenShort = ReadScreenShotFile(stub, fileName="Progressbar/ProgressbarTest2.png")
+        screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Progressbar/ProgressbarTest2.png")
         if screenShort is None:
             return False
 
         # Read image file expected
-        expectedScreenShot = ReadImageFile(fileName='Progressbar/ProgressbarTestExpected2.png')
+        expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Progressbar/ProgressbarTest2.png')
         if expectedScreenShot is None:
             return False
 
@@ -97,12 +98,12 @@ def CheckProgressbarTest3(stub):
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Progressbar/ProgressbarTest3.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Progressbar/ProgressbarTest3.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Progressbar/ProgressbarTestExpected3.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Progressbar/ProgressbarTest3.png')
             if expectedScreenShot is None:
                 return False
 
@@ -122,12 +123,12 @@ def CheckProgressbarTest4(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="Progressbar/ProgressbarTest4.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Progressbar/ProgressbarTest4.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='Progressbar/ProgressbarTestExpected4.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Progressbar/ProgressbarTest4.png')
             if expectedScreenShot is None:
                 return False
 
@@ -158,9 +159,10 @@ def CheckProgressbarTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -176,4 +178,9 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

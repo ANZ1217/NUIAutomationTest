@@ -5,6 +5,7 @@ from aurum_pb2 import *
 from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import time
+import argparse
 
 isScrollbarPageOpened = False
 
@@ -34,12 +35,12 @@ def CheckScrollBarTest1(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollBar/ScrollBarTest01.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollBar/ScrollBarTest01.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollBar/ScrollBarTestExpected01.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollBar/ScrollBarTest01.png')
             if expectedScreenShot is None:
                 return False
 
@@ -58,12 +59,12 @@ def CheckScrollBarTest2(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollBar/ScrollBarTest02.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollBar/ScrollBarTest02.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollBar/ScrollBarTestExpected02.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollBar/ScrollBarTest02.png')
             if expectedScreenShot is None:
                 return False
 
@@ -82,12 +83,12 @@ def CheckScrollBarTest3(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollBar/ScrollBarTest03.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollBar/ScrollBarTest03.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollBar/ScrollBarTestExpected03.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollBar/ScrollBarTest03.png')
             if expectedScreenShot is None:
                 return False
 
@@ -112,12 +113,12 @@ def CheckScrollBarTest4(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="ScrollBar/ScrollBarTest04.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/ScrollBar/ScrollBarTest04.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='ScrollBar/ScrollBarTestExpected04.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/ScrollBar/ScrollBarTest04.png')
             if expectedScreenShot is None:
                 return False
 
@@ -140,9 +141,10 @@ def CheckScrollBarTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -158,4 +160,9 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

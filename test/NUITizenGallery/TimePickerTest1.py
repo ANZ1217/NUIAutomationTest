@@ -5,6 +5,7 @@ from aurum_pb2 import *
 from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import time
+import argparse
 
 isTimePickerPageOpened = False
 XPos = 0
@@ -32,7 +33,7 @@ def CheckTimePickerTest1(stub):
     res = stub.findElements(ReqFindElements(widgetType='Button'))
     for elem in res.elements:
         if "Set" in elem.text:
-            print("elem : ", elem)
+            #print("elem : ", elem)
             stub.click(ReqClick(type="ELEMENTID", elementId=elem.elementId))
             time.sleep(1)
 
@@ -57,12 +58,12 @@ def CheckTimePickerTest1(stub):
             time.sleep(0.3)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="TimePicker/TimePickerTest01.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TimePicker/TimePickerTest01.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='TimePicker/TimePickerTestExpected01.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/TimePicker/TimePickerTest01.png')
             if expectedScreenShot is None:
                 return False
 
@@ -82,12 +83,12 @@ def CheckTimePickerTest2(stub):
             time.sleep(1)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="TimePicker/TimePickerTest02.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TimePicker/TimePickerTest02.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='TimePicker/TimePickerTestExpected02.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/TimePicker/TimePickerTest02.png')
             if expectedScreenShot is None:
                 return False
 
@@ -127,12 +128,12 @@ def CheckTimePickerTest3(stub):
             time.sleep(0.3)
 
             # Take screenshot
-            screenShort = ReadScreenShotFile(stub, fileName="TimePicker/TimePickerTest03.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TimePicker/TimePickerTest03.png")
             if screenShort is None:
                 return False
 
             # Read image file expected
-            expectedScreenShot = ReadImageFile(fileName='TimePicker/TimePickerTestExpected03.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/TimePicker/TimePickerTest03.png')
             if expectedScreenShot is None:
                 return False
 
@@ -143,8 +144,8 @@ def CheckTimePickerTest3(stub):
 def GetGeometryInfo(stub):
     res = stub.findElements(ReqFindElements(widgetType='TimePicker'))
     for elem in res.elements:
-        if "TimePicker" in elem.text:
-            print("elem: ", elem)
+        #if "TimePicker" in elem.text:
+        #print("elem: ", elem)
         # geometry
         # {
         #     x: 660
@@ -175,9 +176,10 @@ def CheckTimePickerTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -193,4 +195,9 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

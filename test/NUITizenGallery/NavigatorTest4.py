@@ -5,6 +5,7 @@ from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import grpc
 import time
+import argparse
 
 isNavigatorPageOpened = False
 
@@ -29,12 +30,12 @@ def CheckNavigatorTest41(stub):
     time.sleep(1)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Navigator/NavigatorTest41.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest41.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Navigator/NavigatorTestExpected41.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Navigator/NavigatorTest41.png')
     if expectedScreenShot is None:
         return False
 
@@ -56,12 +57,12 @@ def CheckNavigatorTest42(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Navigator/NavigatorTest42.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest42.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Navigator/NavigatorTestExpected42.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Navigator/NavigatorTest42.png')
     if expectedScreenShot is None:
         return False
 
@@ -87,12 +88,12 @@ def CheckNavigatorTest43(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Navigator/NavigatorTest43.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest43.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Navigator/NavigatorTestExpected43.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Navigator/NavigatorTest43.png')
     if expectedScreenShot is None:
         return False
 
@@ -118,12 +119,12 @@ def CheckNavigatorTest44(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Navigator/NavigatorTest44.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest44.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Navigator/NavigatorTestExpected44.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Navigator/NavigatorTest44.png')
     if expectedScreenShot is None:
         return False
 
@@ -149,12 +150,12 @@ def CheckNavigatorTest45(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Navigator/NavigatorTest45.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest45.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Navigator/NavigatorTestExpected45.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Navigator/NavigatorTest45.png')
     if expectedScreenShot is None:
         return False
 
@@ -192,14 +193,15 @@ def CheckNavigatorTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
-def run():                                                         
-    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:      
+def run():
+    with grpc.insecure_channel('localhost:50051', options=(('grpc.enable_http_proxy', 0),)) as channel:
         stub = BootstrapStub(channel)
         runTest(stub, LaunchAppTest)
         runTest(stub, CheckNavigatorTestStart)
@@ -211,5 +213,10 @@ def run():
         runTest(stub, CheckNavigatorTestEnd)
 
 
-if __name__ == '__main__':                                         
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

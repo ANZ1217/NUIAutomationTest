@@ -5,6 +5,7 @@ from aurum_pb2 import *
 from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import time
+import argparse
 
 isSliderTest4PageOpened = False
 
@@ -27,7 +28,7 @@ def CheckSliderTest41(stub):
     res = stub.findElements(ReqFindElements(widgetType="Slider"))
     for slider in res.elements:
         if "slider41" in slider.text:
-            print("====== slider41 =======:", slider)
+            #print("====== slider41 =======:", slider)
             stub.click(ReqClick(type="ELEMENTID", elementId=slider.elementId))
             time.sleep(0.3)
 
@@ -45,12 +46,12 @@ def CheckSliderTest41(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest41.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest41.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected41.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest41.png')
             if expectedScreenShot is None:
                 return False
 
@@ -65,7 +66,7 @@ def CheckSliderTest42(stub):
     res = stub.findElements(ReqFindElements(widgetType="Slider"))
     for slider in res.elements:
         if "slider42" in slider.text:
-            print("====== slider42 =======:", slider)
+            #print("====== slider42 =======:", slider)
             stub.click(ReqClick(type="ELEMENTID", elementId=slider.elementId))
             time.sleep(0.3)
 
@@ -83,12 +84,12 @@ def CheckSliderTest42(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest42.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest42.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected42.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest42.png')
             if expectedScreenShot is None:
                 return False
 
@@ -103,7 +104,7 @@ def CheckSliderTest43(stub):
     res = stub.findElements(ReqFindElements(widgetType="Slider"))
     for slider in res.elements:
         if "slider43" in slider.text:
-            print("====== slider43 =======:", slider)
+            #print("====== slider43 =======:", slider)
             stub.click(ReqClick(type="ELEMENTID", elementId=slider.elementId))
             time.sleep(0.3)
 
@@ -121,12 +122,12 @@ def CheckSliderTest43(stub):
             time.sleep(0.3)
 
             # Take ScreenShot.
-            screenShort = ReadScreenShotFile(stub, fileName="Slider/SliderTest43.png")
+            screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Slider/SliderTest43.png")
             if screenShort is None:
                 return False
 
             # Read image file expected.
-            expectedScreenShot = ReadImageFile(fileName='Slider/SliderTestExpected43.png')
+            expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Slider/SliderTest43.png')
             if expectedScreenShot is None:
                 return False
 
@@ -149,9 +150,10 @@ def CheckSliderTest4End(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -166,4 +168,9 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

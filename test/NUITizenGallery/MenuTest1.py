@@ -5,6 +5,7 @@ from aurum_pb2_grpc import BootstrapStub
 from NUIGalleryTestUtils import *
 import grpc
 import time
+import argparse
 
 isMenuPageOpened = False
 
@@ -33,12 +34,12 @@ def CheckMenuTest11(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Menu/MenuTest11.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Menu/MenuTest11.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Menu/MenuTestExpected11.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Menu/MenuTest11.png')
     if expectedScreenShot is None:
         return False
 
@@ -60,12 +61,12 @@ def CheckMenuTest12(stub):
     time.sleep(0.3)
 
     # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Menu/MenuTest12.png")
+    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Menu/MenuTest12.png")
     if screenShort is None:
         return False
 
     # Read image file expected.
-    expectedScreenShot = ReadImageFile(fileName='Menu/MenuTestExpected12.png')
+    expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Menu/MenuTest12.png')
     if expectedScreenShot is None:
         return False
 
@@ -93,9 +94,10 @@ def CheckMenuTestEnd(stub):
 
 
 def runTest(stub, testFunc):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
     result = testFunc(stub)
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     return True
 
 
@@ -109,4 +111,9 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     run()

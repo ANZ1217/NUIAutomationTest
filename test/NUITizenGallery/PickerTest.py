@@ -4,6 +4,7 @@ from aurum_pb2_grpc import BootstrapStub
 import logging
 import grpc
 import time
+import argparse
 
 # Check the object in the screen(TM1) or not
 def inScreen(size):
@@ -77,12 +78,12 @@ def PickerScrollTest(stub):
     # 3
     pickerCenterX = response.elements[0].geometry.x + (response.elements[0].geometry.width / 2)
     pickerCenterY = response.elements[0].geometry.y + (response.elements[0].geometry.height / 2)
-    
+
     for tryCnt in range(30):
         # 4
         stub.flick(ReqFlick(startPoint=Point(x=int(pickerCenterX), y=int(pickerCenterY)), endPoint=Point(x=int(pickerCenterX), y=int(pickerCenterY-70)), durationMs=50))
         response = stub.findElement(ReqFindElement(textField='Black'))
-        if len(response.elements) > 0: 
+        if len(response.elements) > 0:
             if response.elements[0].id == responseText.elements[0].id:
                 return True
 
@@ -107,15 +108,18 @@ def defaultSetup(stub):
 def defaultTearDown(stub):
     stub.closeApp(ReqCloseApp(packageName='org.tizen.example.NUITizenGallery'))
 
+
 def runTest(stub, testFunc, setup=defaultSetup, tearDown=defaultTearDown, alwaySucceed=False):
-    print("Testing started :", testFunc)
+    print("Testing started :", testFunc.__name__)
 
     setup(stub)
     result = testFunc(stub)
     tearDown(stub)
 
-    print("Testing result :", result)
+    print("Testing {} result : {}".format(testFunc.__name__, result))
+
     if alwaySucceed: return True
+
 
 def runTestWithoutSetupAndTearDown(stub, testFunc, setup=defaultSetup, tearDown=defaultTearDown):
     def Empty(stub):
@@ -135,5 +139,10 @@ def run():
         # stub.killServer(ReqEmpty())
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Test Options')
+    parser.add_argument('--exit', dest='exit', action='store_true')
+    parser.add_argument('--no-exit', dest='exit', action='store_false')
+    parser.set_defaults(exit=True)
+    args = parser.parse_args()
     logging.basicConfig()
     run()
