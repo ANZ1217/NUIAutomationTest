@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import datetime
 import argparse
+from distutils.dir_util import copy_tree
 
 # Testcases list.
 def GetTCList():
@@ -74,16 +75,17 @@ def RenameImageFileNames(target):
             dirName = m.group(1)
             #print(dirName)
             imageList = glob.glob("./Results/TestedImages/*")
+            print(imageList)
             for testPath in imageList:
                 print("{} copying".format(testPath))
                 destPath = "./Results/ExpectedImages/{}".format(dirName)
                 print(destPath)
-                shutil.copytree(testPath, destPath, dirs_exist_ok=True)
+                copy_tree(testPath, destPath)
                 print("removing {}".format(testPath))
                 if os.path.isdir(testPath):
                     shutil.rmtree(testPath)
 
-        shutil.copytree("./Results/ExpectedImages", "./ExpectedImages/{}".format(target), dirs_exist_ok=True)
+        copy_tree("./Results/ExpectedImages", "./ExpectedImages/{}".format(target))
 
 
 if __name__ == '__main__':

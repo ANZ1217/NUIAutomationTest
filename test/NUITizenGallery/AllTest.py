@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import time
 import argparse
+from distutils.dir_util import copy_tree
 
 # Testcases list.
 def GetTCList(list):
@@ -112,8 +113,8 @@ if __name__ == '__main__':
     RunAllTest('./tclist.txt', f, currentTime, args.target)
     f.write("</html>")
     f.close()
-    shutil.copytree("./Results/TestedImages", "./Results/{}/TestedImages".format(currentTime), dirs_exist_ok=True)
-    shutil.copytree("./Results/ExpectedImages", "./Results/{}/ExpectedImages".format(currentTime), dirs_exist_ok=True)
+    copy_tree("./Results/TestedImages", "./Results/{}/TestedImages".format(currentTime))
+    copy_tree("./Results/ExpectedImages", "./Results/{}/ExpectedImages".format(currentTime))
     if os.path.islink("./Results/Latest"):
         os.remove("./Results/Latest")
         os.symlink("./Results/{}".format(currentTime), "./Results/Latest")
