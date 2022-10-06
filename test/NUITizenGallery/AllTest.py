@@ -24,6 +24,7 @@ def RunTest(pyFileName, ret):
     python_version = '3'
     path_to_run = './'
     py_name = pyFileName + '.py'
+    failedCount = 0
 
     args = ["python{}".format(python_version), "-u", "{}{}".format(path_to_run, py_name), "--no-exit"]
     proc = subprocess.Popen(args, universal_newlines=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -42,7 +43,6 @@ def RunTest(pyFileName, ret):
         proc.kill()
         output, error_ = proc.communicate()
 
-    failedCount = 0
     if error_:
         failedCount+=1
         print("\033[41m\033[37m"+ error_ + "\033[0m")
