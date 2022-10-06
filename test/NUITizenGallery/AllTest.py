@@ -61,6 +61,7 @@ def RunAllTest(list, ret, currentTime, target):
     ret.write("<table border=1>\n<th>Test</th>\n<th>Result</th>\n");
 
     tcFileNameList = GetTCList(list)
+    for item in tcFileNameList:
         itemTitle = "=============================[ {} ]=============================".format(item)
         print("\033[47m\033[30m" + itemTitle + "\033[0m")
 
