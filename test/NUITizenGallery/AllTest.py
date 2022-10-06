@@ -9,8 +9,8 @@ import argparse
 from distutils.dir_util import copy_tree
 
 # Testcases list.
-def GetTCList(list):
-    with open(list) as file:
+def GetTCList(filelist):
+    with open(filelist) as file:
         lines = file.readlines()
         newlines = list()
         for line in lines:
@@ -61,6 +61,7 @@ def RunAllTest(list, ret, currentTime, target):
     ret.write("<table border=1>\n<th>Test</th>\n<th>Result</th>\n");
 
     tcFileNameList = GetTCList(list)
+    for item in tcFileNameList:
         itemTitle = "=============================[ {} ]=============================".format(item)
         print("\033[47m\033[30m" + itemTitle + "\033[0m")
 
