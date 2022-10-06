@@ -16,7 +16,7 @@ def LaunchAppTest(stub):
 
     stub.launchApp(ReqLaunchApp(packageName='org.tizen.example.NUITizenGallery'))
     # This sleep is needed, or ReqFindElement will report "Status: Error" during do all test
-    time.sleep(2)
+    time.sleep(5)
     return stub.getAppInfo(ReqGetAppInfo(packageName='org.tizen.example.NUITizenGallery')).isRunning
 
 
