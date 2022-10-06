@@ -13,13 +13,17 @@ from distutils.dir_util import copy_tree
 def GetTCList():
     with open('./tclist.txt') as file:
         lines = file.readlines()
-        lines = [line.rstrip() for line in lines]
-        return lines
+        newlines = list()
+        for line in lines:
+            line = line.rstrip()
+            if not line.startswith('#'):
+                newlines.append(line)
+        return newlines
 
 
 def RemoveAllDirs(tcFileNameList, target):
     for item in tcFileNameList:
-        print("================{}=======================".format(item))
+        print("================{}================".format(item))
         r = re.compile("([a-zA-Z]+)Test([0-9]*)")
         m = r.match(item)
         dirName = m.group(1)
@@ -38,8 +42,15 @@ def RunTest(pyFileName):
     path_to_run = './'
     py_name = pyFileName + '.py'
 
-    args = ["python{}".format(python_version), "{}{}".format(path_to_run, py_name)]
-    proc = subprocess.Popen(args, universal_newlines=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    args = ["python{}".format(python_version), "-u", "{}{}".format(path_to_run, py_name)]
+    with subprocess.Popen(args, universal_newlines=True, stdout=subprocess.PIPE, bufsize=1, stderr=subprocess.PIPE) as proc:
+        for line in proc.stdout:
+            if 'False' in line:
+                print("\033[91m" + line + "\033[0m")
+            elif 'True' in line:
+                print("\033[92m" + line + "\033[0m")
+            else:
+                print(line)
     try:
         output, error_ = proc.communicate(timeout=120)
     except subprocess.TimeoutExpired:
@@ -66,7 +77,7 @@ def RenameImageFileNames(target):
     # Generate screenshots expected.
     for item in tcFileNameList:
         now = datetime.datetime.now()
-        print("================{}============== {}:{}:{}".format(item, now.hour, now.minute, now.second))
+        print("================ {} Start ============== {}:{}:{}".format(item, now.hour, now.minute, now.second))
 
         ret = RunTest(item)
         if ret:
@@ -86,6 +97,8 @@ def RenameImageFileNames(target):
                     shutil.rmtree(testPath)
 
         copy_tree("./Results/ExpectedImages", "./ExpectedImages/{}".format(target))
+
+        print("================ {} Finish ============== {}:{}:{}".format(item, now.hour, now.minute, now.second))
 
 
 if __name__ == '__main__':

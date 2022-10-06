@@ -152,6 +152,21 @@ class BootstrapStub(object):
                 request_serializer=aurum__pb2.ReqFindElements.SerializeToString,
                 response_deserializer=aurum__pb2.RspFindElements.FromString,
                 )
+        self.getActiveAppToolkitName = channel.unary_unary(
+                '/aurum.Bootstrap/getActiveAppToolkitName',
+                request_serializer=aurum__pb2.ReqGetActiveAppToolkitName.SerializeToString,
+                response_deserializer=aurum__pb2.RspGetActiveAppToolkitName.FromString,
+                )
+        self.enableScreenAnalyzer = channel.unary_unary(
+                '/aurum.Bootstrap/enableScreenAnalyzer',
+                request_serializer=aurum__pb2.ReqEnableScreenAnalyzer.SerializeToString,
+                response_deserializer=aurum__pb2.RspEnableScreenAnalyzer.FromString,
+                )
+        self.getTextMinBoundingRect = channel.unary_unary(
+                '/aurum.Bootstrap/getTextMinBoundingRect',
+                request_serializer=aurum__pb2.ReqGetTextMinBoundingRect.SerializeToString,
+                response_deserializer=aurum__pb2.RspGetTextMinBoundingRect.FromString,
+                )
 
 
 class BootstrapServicer(object):
@@ -322,6 +337,24 @@ class BootstrapServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def getActiveAppToolkitName(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def enableScreenAnalyzer(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def getTextMinBoundingRect(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_BootstrapServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -459,6 +492,21 @@ def add_BootstrapServicer_to_server(servicer, server):
                     servicer.findElements,
                     request_deserializer=aurum__pb2.ReqFindElements.FromString,
                     response_serializer=aurum__pb2.RspFindElements.SerializeToString,
+            ),
+            'getActiveAppToolkitName': grpc.unary_unary_rpc_method_handler(
+                    servicer.getActiveAppToolkitName,
+                    request_deserializer=aurum__pb2.ReqGetActiveAppToolkitName.FromString,
+                    response_serializer=aurum__pb2.RspGetActiveAppToolkitName.SerializeToString,
+            ),
+            'enableScreenAnalyzer': grpc.unary_unary_rpc_method_handler(
+                    servicer.enableScreenAnalyzer,
+                    request_deserializer=aurum__pb2.ReqEnableScreenAnalyzer.FromString,
+                    response_serializer=aurum__pb2.RspEnableScreenAnalyzer.SerializeToString,
+            ),
+            'getTextMinBoundingRect': grpc.unary_unary_rpc_method_handler(
+                    servicer.getTextMinBoundingRect,
+                    request_deserializer=aurum__pb2.ReqGetTextMinBoundingRect.FromString,
+                    response_serializer=aurum__pb2.RspGetTextMinBoundingRect.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -929,5 +977,56 @@ class Bootstrap(object):
         return grpc.experimental.unary_unary(request, target, '/aurum.Bootstrap/findElements',
             aurum__pb2.ReqFindElements.SerializeToString,
             aurum__pb2.RspFindElements.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getActiveAppToolkitName(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aurum.Bootstrap/getActiveAppToolkitName',
+            aurum__pb2.ReqGetActiveAppToolkitName.SerializeToString,
+            aurum__pb2.RspGetActiveAppToolkitName.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def enableScreenAnalyzer(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aurum.Bootstrap/enableScreenAnalyzer',
+            aurum__pb2.ReqEnableScreenAnalyzer.SerializeToString,
+            aurum__pb2.RspEnableScreenAnalyzer.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getTextMinBoundingRect(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aurum.Bootstrap/getTextMinBoundingRect',
+            aurum__pb2.ReqGetTextMinBoundingRect.SerializeToString,
+            aurum__pb2.RspGetTextMinBoundingRect.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

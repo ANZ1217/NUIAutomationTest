@@ -23,7 +23,7 @@ def LaunchAppTest(stub):
 def FindTCByInputText(stub, targetTC):
     response = stub.findElement(ReqFindElement(widgetType='TextField'))
     if response.element is None:
-        #print("can not find TextField")
+        print("can not find TextField")
         return False
 
     targetObj = response.element.elementId
@@ -31,7 +31,7 @@ def FindTCByInputText(stub, targetTC):
 
     response = stub.findElement(ReqFindElement(textField='Run'))
     if response.element is None:
-        #print("can not found Run button")
+        print("can not found Run button")
         return False
 
     targetObj = response.element.elementId
@@ -52,15 +52,15 @@ def FindTCAndClickByFlicking(stub, targetTC):
     time.sleep(5)
 
     isRunning = stub.getAppInfo(ReqGetAppInfo(packageName="org.tizen.example.NUITizenGallery")).isRunning
-    #print("isRunning=", isRunning)
+    print("isRunning=", isRunning)
     time.sleep(1)
 
     for tryCnt in range(9):
-        #print('FindTCAndClickByFlicking() @ tries:', tryCnt)
+        print('FindTCAndClickByFlicking() @ tries:', tryCnt)
         res = stub.findElements(ReqFindElements(widgetType='DefaultLinearItem', isShowing=True))
         for tc in res.elements:
             if targetTC in tc.text:
-                #print("found target TC:", tc.text)
+                print("found target TC:", tc.text)
                 time.sleep(3)
                 stub.click(ReqClick(type="ELEMENTID", elementId=tc.elementId))
                 return True
@@ -75,7 +75,7 @@ def FindTCAndClickByFlicking(stub, targetTC):
 def ReadImageFile(fileName):
     # Get current dir
     currentDir = os.path.dirname(os.path.abspath(__file__))
-    #print('current dir is ', currentDir)
+    print('current dir is ', currentDir)
 
     # Check if file exists.
     path = currentDir + '/' + fileName
@@ -88,21 +88,21 @@ def ReadImageFile(fileName):
 def ReadScreenShotFile(stub, fileName):
     # Get current dir
     currentDir = os.path.dirname(os.path.abspath(__file__))
-    #print('current dir is ', currentDir)
+    print('current dir is ', currentDir)
 
     # Create dir if neccessary.
     path = currentDir + '/' + fileName
     os.makedirs(os.path.dirname(path), exist_ok=True)
 
     # Take screen shot.
-    #print("take a screen shot")
+    print("take a screen shot")
     image = open(path, "wb")
     time.sleep(1)
     screenShot = stub.takeScreenshot(ReqTakeScreenshot())
     for sshot in screenShot:
         image.write(sshot.image)
     image.close()
-    #print("File written!")
+    print("File written!")
 
     return cv2.imread(path)
 
@@ -146,5 +146,5 @@ def CheckSSIM(answerImge, testTargetImage):
 
     ssim_map = np.divide(t3, t1)
     ssim_map = np.mean(ssim_map)
-    #print("ssim value is ", ssim_map)
+    print("ssim value is ", ssim_map)
     return ssim_map >= 0.99

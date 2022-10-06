@@ -12,8 +12,12 @@ from distutils.dir_util import copy_tree
 def GetTCList(list):
     with open(list) as file:
         lines = file.readlines()
-        lines = [line.rstrip() for line in lines]
-        return lines
+        newlines = list()
+        for line in lines:
+            line = line.rstrip()
+            if not line.startswith('#'):
+                newlines.append(line)
+        return newlines
 
 
 def RunTest(pyFileName, ret):
@@ -21,9 +25,17 @@ def RunTest(pyFileName, ret):
     path_to_run = './'
     py_name = pyFileName + '.py'
 
-    args = ["python{}".format(python_version), "{}{}".format(path_to_run, py_name), "--no-exit"]
-    #print(args)
+    args = ["python{}".format(python_version), "-u", "{}{}".format(path_to_run, py_name), "--no-exit"]
     proc = subprocess.Popen(args, universal_newlines=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    with subprocess.Popen(args, universal_newlines=True, stdout=subprocess.PIPE, bufsize=1, stderr=subprocess.PIPE) as proc:
+        for line in proc.stdout:
+            if 'False' in line:
+                failedCount+=1
+                print("\033[91m" + line + "\033[0m")
+            elif 'True' in line:
+                print("\033[92m" + line + "\033[0m")
+            else:
+                print(line)
     try:
         output, error_ = proc.communicate(timeout=120)
     except subprocess.TimeoutExpired:
@@ -31,20 +43,9 @@ def RunTest(pyFileName, ret):
         output, error_ = proc.communicate()
 
     failedCount = 0
-    if not error_:
-        #print(output)
-        outputlines = output.split('\n')
-        for printline in outputlines:
-            if 'True' in printline:
-                print("\033[92m" + printline + "\033[0m")
-            elif 'False' in printline:
-                print("\033[91m" + printline + "\033[0m")
-                failedCount+=1
-            else:
-                print(printline)
-    else:
-        print("\033[41m\033[37m"+ error_ + "\033[0m")
+    if error_:
         failedCount+=1
+        print("\033[41m\033[37m"+ error_ + "\033[0m")
 
     return failedCount
 
@@ -60,11 +61,6 @@ def RunAllTest(list, ret, currentTime, target):
     ret.write("<table border=1>\n<th>Test</th>\n<th>Result</th>\n");
 
     tcFileNameList = GetTCList(list)
-    for item in tcFileNameList:
-        if item.startswith('#'):
-            #print("{} will not be tested.".format(item))
-            continue
-
         itemTitle = "=============================[ {} ]=============================".format(item)
         print("\033[47m\033[30m" + itemTitle + "\033[0m")
 

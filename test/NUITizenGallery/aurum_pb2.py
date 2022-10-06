@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0b\x61urum.proto\x12\x05\x61urum\"\xbc\x04\n\x07\x45lement\x12\x11\n\telementId\x18\x01 \x01(\t\x12\x1d\n\x05\x63hild\x18\x02 \x03(\x0b\x32\x0e.aurum.Element\x12\x1d\n\x08geometry\x18\x03 \x01(\x0b\x32\x0b.aurum.Rect\x12-\n\x18window_relative_geometry\x18\x04 \x01(\x0b\x32\x0b.aurum.Rect\x12\x13\n\x0bwidget_type\x18\x05 \x01(\t\x12\x14\n\x0cwidget_style\x18\x06 \x01(\t\x12\x0c\n\x04text\x18\x07 \x01(\t\x12\r\n\x05xpath\x18\x08 \x01(\t\x12\x14\n\x0c\x61utomationId\x18\t \x01(\t\x12\x0f\n\x07package\x18\n \x01(\t\x12\x0c\n\x04role\x18\x0b \x01(\t\x12\x11\n\tisChecked\x18\x0c \x01(\x08\x12\x13\n\x0bisCheckable\x18\r \x01(\x08\x12\x13\n\x0bisClickable\x18\x0e \x01(\x08\x12\x11\n\tisEnabled\x18\x0f \x01(\x08\x12\x11\n\tisFocused\x18\x10 \x01(\x08\x12\x13\n\x0bisFocusable\x18\x11 \x01(\x08\x12\x14\n\x0cisScrollable\x18\x12 \x01(\x08\x12\x12\n\nisSelected\x18\x13 \x01(\x08\x12\x11\n\tisShowing\x18\x14 \x01(\x08\x12\x10\n\x08isActive\x18\x15 \x01(\x08\x12\x11\n\tisVisible\x18\x16 \x01(\x08\x12\x14\n\x0cisSelectable\x18\x17 \x01(\x08\x12\x10\n\x08minValue\x18\x18 \x01(\x01\x12\x10\n\x08maxValue\x18\x19 \x01(\x01\x12\r\n\x05value\x18\x1a \x01(\x01\x12\x11\n\tincrement\x18\x1b \x01(\x01\"\x1d\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\";\n\x04Rect\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\"(\n\nLaunchData\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x99\x06\n\x0eReqFindElement\x12\x13\n\telementId\x18\x01 \x01(\tH\x00\x12\x16\n\x0c\x61utomationId\x18\x02 \x01(\tH\x01\x12\x13\n\ttextField\x18\x03 \x01(\tH\x02\x12\x14\n\nwidgetType\x18\x04 \x01(\tH\x03\x12\x15\n\x0bwidgetStyle\x18\x05 \x01(\tH\x04\x12\x13\n\tisChecked\x18\x06 \x01(\x08H\x05\x12\x15\n\x0bisCheckable\x18\x07 \x01(\x08H\x06\x12\x15\n\x0bisClickable\x18\x08 \x01(\x08H\x07\x12\x13\n\tisEnabled\x18\t \x01(\x08H\x08\x12\x13\n\tisFocused\x18\n \x01(\x08H\t\x12\x15\n\x0bisFocusable\x18\x0b \x01(\x08H\n\x12\x16\n\x0cisScrollable\x18\x0c \x01(\x08H\x0b\x12\x14\n\nisSelected\x18\r \x01(\x08H\x0c\x12\x13\n\tisShowing\x18\x0e \x01(\x08H\r\x12\x12\n\x08isActive\x18\x0f \x01(\x08H\x0e\x12\x12\n\x08minDepth\x18\x10 \x01(\x05H\x0f\x12\x12\n\x08maxDepth\x18\x11 \x01(\x05H\x10\x12\x15\n\x0bpackageName\x18\x12 \x01(\tH\x11\x12\x1a\n\x10textPartialMatch\x18\x13 \x01(\tH\x12\x12\x0f\n\x05xpath\x18\x14 \x01(\tH\x13\x12\'\n\x08\x63hildren\x18\x15 \x03(\x0b\x32\x15.aurum.ReqFindElementB\x0c\n\n_elementidB\x0f\n\r_automationidB\x0c\n\n_textfieldB\r\n\x0b_widgettypeB\x0e\n\x0c_widgetstyleB\x0c\n\n_ischeckedB\x0e\n\x0c_ischeckableB\x0e\n\x0c_isclickableB\x0c\n\n_isenabledB\x0c\n\n_isfocusedB\x0e\n\x0c_isfocusableB\x0f\n\r_isscrollableB\r\n\x0b_isselectedB\x0c\n\n_isshowingB\x0b\n\t_isactiveB\x0b\n\t_mindepthB\x0b\n\t_maxdepthB\x0e\n\x0c_packagenameB\x13\n\x11_textpartialmatchB\x08\n\x06_xpath\"S\n\x0eRspFindElement\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x1f\n\x07\x65lement\x18\x02 \x01(\x0b\x32\x0e.aurum.Element\"\x9b\x06\n\x0fReqFindElements\x12\x13\n\telementId\x18\x01 \x01(\tH\x00\x12\x16\n\x0c\x61utomationId\x18\x02 \x01(\tH\x01\x12\x13\n\ttextField\x18\x03 \x01(\tH\x02\x12\x14\n\nwidgetType\x18\x04 \x01(\tH\x03\x12\x15\n\x0bwidgetStyle\x18\x05 \x01(\tH\x04\x12\x13\n\tisChecked\x18\x06 \x01(\x08H\x05\x12\x15\n\x0bisCheckable\x18\x07 \x01(\x08H\x06\x12\x15\n\x0bisClickable\x18\x08 \x01(\x08H\x07\x12\x13\n\tisEnabled\x18\t \x01(\x08H\x08\x12\x13\n\tisFocused\x18\n \x01(\x08H\t\x12\x15\n\x0bisFocusable\x18\x0b \x01(\x08H\n\x12\x16\n\x0cisScrollable\x18\x0c \x01(\x08H\x0b\x12\x14\n\nisSelected\x18\r \x01(\x08H\x0c\x12\x13\n\tisShowing\x18\x0e \x01(\x08H\r\x12\x12\n\x08isActive\x18\x0f \x01(\x08H\x0e\x12\x12\n\x08minDepth\x18\x10 \x01(\x05H\x0f\x12\x12\n\x08maxDepth\x18\x11 \x01(\x05H\x10\x12\x15\n\x0bpackageName\x18\x12 \x01(\tH\x11\x12\x1a\n\x10textPartialMatch\x18\x13 \x01(\tH\x12\x12\x0f\n\x05xpath\x18\x14 \x01(\tH\x13\x12(\n\x08\x63hildren\x18\x15 \x03(\x0b\x32\x16.aurum.ReqFindElementsB\x0c\n\n_elementidB\x0f\n\r_automationidB\x0c\n\n_textfieldB\r\n\x0b_widgettypeB\x0e\n\x0c_widgetstyleB\x0c\n\n_ischeckedB\x0e\n\x0c_ischeckableB\x0e\n\x0c_isclickableB\x0c\n\n_isenabledB\x0c\n\n_isfocusedB\x0e\n\x0c_isfocusableB\x0f\n\r_isscrollableB\r\n\x0b_isselectedB\x0c\n\n_isshowingB\x0b\n\t_isactiveB\x0b\n\t_mindepthB\x0b\n\t_maxdepthB\x0e\n\x0c_packagenameB\x13\n\x11_textpartialmatchB\x08\n\x06_xpath\"U\n\x0fRspFindElements\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12 \n\x08\x65lements\x18\x02 \x03(\x0b\x32\x0e.aurum.Element\"@\n\x0bReqGetValue\x12\x11\n\telementId\x18\x01 \x01(\t\x12\x1e\n\x04type\x18\x02 \x01(\x0e\x32\x10.aurum.ParamType\"\xb0\x01\n\x0bRspGetValue\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x1e\n\x04type\x18\x02 \x01(\x0e\x32\x10.aurum.ParamType\x12\x15\n\x0bstringValue\x18\x03 \x01(\tH\x00\x12\x12\n\x08intValue\x18\x04 \x01(\x05H\x00\x12\x15\n\x0b\x64oubleValue\x18\x05 \x01(\x01H\x00\x12\x13\n\tboolValue\x18\x06 \x01(\x08H\x00\x42\x08\n\x06params\"\xa1\x01\n\x0bReqSetValue\x12\x11\n\telementId\x18\x01 \x01(\t\x12\x1e\n\x04type\x18\x02 \x01(\x0e\x32\x10.aurum.ParamType\x12\x15\n\x0bstringValue\x18\x03 \x01(\tH\x00\x12\x12\n\x08intValue\x18\x04 \x01(\x05H\x00\x12\x15\n\x0b\x64oubleValue\x18\x05 \x01(\x01H\x00\x12\x13\n\tboolValue\x18\x06 \x01(\x08H\x00\x42\x08\n\x06params\"/\n\x0bRspSetValue\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"o\n\nReqGetSize\x12)\n\x04type\x18\x01 \x01(\x0e\x32\x1b.aurum.ReqGetSize.CoordType\x12\x11\n\telementId\x18\x02 \x01(\t\"#\n\tCoordType\x12\n\n\x06SCREEN\x10\x00\x12\n\n\x06WINDOW\x10\x01\"I\n\nRspGetSize\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x19\n\x04size\x18\x02 \x01(\x0b\x32\x0b.aurum.Rect\"\x1d\n\x08ReqClear\x12\x11\n\telementId\x18\x01 \x01(\t\",\n\x08RspClear\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"\x93\x02\n\x0fReqGetAttribute\x12\x11\n\telementId\x18\x01 \x01(\t\x12\x35\n\tattribute\x18\x02 \x01(\x0e\x32\".aurum.ReqGetAttribute.RequestType\"\xb5\x01\n\x0bRequestType\x12\x0b\n\x07VISIBLE\x10\x00\x12\r\n\tFOCUSABLE\x10\x01\x12\x0b\n\x07\x46OCUSED\x10\x02\x12\x0b\n\x07\x45NABLED\x10\x03\x12\r\n\tCLICKABLE\x10\x04\x12\x0e\n\nSCROLLABLE\x10\x05\x12\r\n\tCHECKABLE\x10\x06\x12\x0b\n\x07\x43HECKED\x10\x07\x12\x0c\n\x08SELECTED\x10\x08\x12\x0e\n\nSELECTABLE\x10\t\x12\x0b\n\x07SHOWING\x10\n\x12\n\n\x06\x41\x43TIVE\x10\x0b\"F\n\x0fRspGetAttribute\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x11\n\tboolValue\x18\x02 \x01(\x08\"\xae\x01\n\x08ReqClick\x12)\n\x04type\x18\x01 \x01(\x0e\x32\x1b.aurum.ReqClick.RequestType\x12\x13\n\telementId\x18\x02 \x01(\tH\x00\x12$\n\x0c\x63oordination\x18\x03 \x01(\x0b\x32\x0c.aurum.PointH\x00\"2\n\x0bRequestType\x12\r\n\tELEMENTID\x10\x00\x12\t\n\x05\x43OORD\x10\x01\x12\t\n\x05\x41TSPI\x10\x02\x42\x08\n\x06params\",\n\x08RspClick\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"`\n\x08ReqFlick\x12 \n\nstartPoint\x18\x01 \x01(\x0b\x32\x0c.aurum.Point\x12\x1e\n\x08\x65ndPoint\x18\x02 \x01(\x0b\x32\x0c.aurum.Point\x12\x12\n\ndurationMs\x18\x03 \x01(\x05\",\n\x08RspFlick\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"2\n\x0cReqTouchDown\x12\"\n\x0c\x63oordination\x18\x01 \x01(\x0b\x32\x0c.aurum.Point\"?\n\x0cRspTouchDown\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\r\n\x05seqId\x18\x02 \x01(\x05\"A\n\x0cReqTouchMove\x12\r\n\x05seqId\x18\x01 \x01(\x05\x12\"\n\x0c\x63oordination\x18\x02 \x01(\x0b\x32\x0c.aurum.Point\"0\n\x0cRspTouchMove\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"?\n\nReqTouchUp\x12\r\n\x05seqId\x18\x01 \x01(\x05\x12\"\n\x0c\x63oordination\x18\x02 \x01(\x0b\x32\x0c.aurum.Point\".\n\nRspTouchUp\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\" \n\rReqInstallApp\x12\x0f\n\x07package\x18\x01 \x01(\x0c\"1\n\rRspInstallApp\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"#\n\x0cReqRemoveApp\x12\x13\n\x0bpackageName\x18\x01 \x01(\t\"0\n\x0cRspRemoveApp\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"$\n\rReqGetAppInfo\x12\x13\n\x0bpackageName\x18\x01 \x01(\t\"l\n\rRspGetAppInfo\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x13\n\x0bisInstalled\x18\x02 \x01(\x08\x12\x11\n\tisRunning\x18\x03 \x01(\x08\x12\x11\n\tisFocused\x18\x04 \x01(\x08\"D\n\x0cReqLaunchApp\x12\x13\n\x0bpackageName\x18\x01 \x01(\t\x12\x1f\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x11.aurum.LaunchData\"0\n\x0cRspLaunchApp\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"\"\n\x0bReqCloseApp\x12\x13\n\x0bpackageName\x18\x01 \x01(\t\"/\n\x0bRspCloseApp\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"i\n\x10ReqGetDeviceTime\x12.\n\x04type\x18\x01 \x01(\x0e\x32 .aurum.ReqGetDeviceTime.TimeType\"%\n\x08TimeType\x12\r\n\tWALLCLOCK\x10\x00\x12\n\n\x06SYSTEM\x10\x01\"b\n\x10RspGetDeviceTime\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x14\n\x0ctimestampUTC\x18\x02 \x01(\x03\x12\x16\n\x0elocaleDatetime\x18\x03 \x01(\t\"\x10\n\x0eReqGetLocation\"L\n\x0eRspGetLocation\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x0b\n\x03\x61lt\x18\x02 \x01(\x01\x12\x0b\n\x03lat\x18\x03 \x01(\x01\"\xab\x02\n\x06ReqKey\x12#\n\x04type\x18\x01 \x01(\x0e\x32\x15.aurum.ReqKey.KeyType\x12/\n\nactionType\x18\x02 \x01(\x0e\x32\x1b.aurum.ReqKey.KeyActionType\x12\x13\n\x0bXF86keyCode\x18\x04 \x01(\t\"p\n\x07KeyType\x12\x08\n\x04\x42\x41\x43K\x10\x00\x12\x08\n\x04MENU\x10\x01\x12\x08\n\x04HOME\x10\x02\x12\t\n\x05VOLUP\x10\x03\x12\x0b\n\x07VOLDOWN\x10\x04\x12\t\n\x05POWER\x10\x05\x12\x08\n\x04XF86\x10\x07\x12\x0b\n\x07WHEELUP\x10\x08\x12\r\n\tWHEELDOWN\x10\t\"D\n\rKeyActionType\x12\n\n\x06STROKE\x10\x00\x12\x0f\n\x0bLONG_STROKE\x10\x01\x12\t\n\x05PRESS\x10\x02\x12\x0b\n\x07RELEASE\x10\x03\"*\n\x06RspKey\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"\x13\n\x11ReqTakeScreenshot\"\"\n\x11RspTakeScreenshot\x12\r\n\x05image\x18\x01 \x01(\x0c\"\n\n\x08ReqEmpty\"\n\n\x08RspEmpty\"&\n\x11ReqDumpObjectTree\x12\x11\n\telementId\x18\x01 \x01(\t\"T\n\x11RspDumpObjectTree\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x1d\n\x05roots\x18\x02 \x03(\x0b\x32\x0e.aurum.Element\"\x12\n\x10ReqGetScreenSize\"O\n\x10RspGetScreenSize\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x19\n\x04size\x18\x02 \x01(\x0b\x32\x0b.aurum.Rect\"\xe5\x02\n\x15ReqActionAndWaitEvent\x12\x35\n\x04type\x18\x01 \x01(\x0e\x32\'.aurum.ReqActionAndWaitEvent.ActionType\x12\x13\n\telementId\x18\x02 \x01(\tH\x00\x12\x15\n\x0bXF86keyCode\x18\x03 \x01(\tH\x00\x12\x39\n\teventType\x18\x04 \x01(\x0e\x32&.aurum.ReqActionAndWaitEvent.EventType\x12\x11\n\ttimeoutMs\x18\x05 \x01(\x05\"+\n\nActionType\x12\t\n\x05\x43LICK\x10\x00\x12\x07\n\x03KEY\x10\x01\x12\t\n\x05\x46OCUS\x10\x02\"d\n\tEventType\x12\x19\n\x15\x45VENT_WINDOW_ACTIVATE\x10\x00\x12\x1b\n\x17\x45VENT_WINDOW_DEACTIVATE\x10\x01\x12\x1f\n\x1b\x45VENT_STATE_CHANGED_FOCUSED\x10\x02\x42\x08\n\x06params\"9\n\x15RspActionAndWaitEvent\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\" \n\x0bReqSetFocus\x12\x11\n\telementId\x18\x01 \x01(\t\"/\n\x0bRspSetFocus\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus*&\n\tRspStatus\x12\x06\n\x02OK\x10\x00\x12\x06\n\x02NA\x10\x01\x12\t\n\x05\x45RROR\x10\x02*6\n\tParamType\x12\n\n\x06STRING\x10\x00\x12\x07\n\x03INT\x10\x01\x12\n\n\x06\x44OUBLE\x10\x02\x12\x08\n\x04\x42OOL\x10\x03\x32\xae\x0c\n\tBootstrap\x12\x30\n\nkillServer\x12\x0f.aurum.ReqEmpty\x1a\x0f.aurum.RspEmpty\"\x00\x12=\n\x0b\x66indElement\x12\x15.aurum.ReqFindElement\x1a\x15.aurum.RspFindElement\"\x00\x12\x34\n\x08getValue\x12\x12.aurum.ReqGetValue\x1a\x12.aurum.RspGetValue\"\x00\x12\x34\n\x08setValue\x12\x12.aurum.ReqSetValue\x1a\x12.aurum.RspSetValue\"\x00\x12\x31\n\x07getSize\x12\x11.aurum.ReqGetSize\x1a\x11.aurum.RspGetSize\"\x00\x12+\n\x05\x63lear\x12\x0f.aurum.ReqClear\x1a\x0f.aurum.RspClear\"\x00\x12@\n\x0cgetAttribute\x12\x16.aurum.ReqGetAttribute\x1a\x16.aurum.RspGetAttribute\"\x00\x12+\n\x05\x63lick\x12\x0f.aurum.ReqClick\x1a\x0f.aurum.RspClick\"\x00\x12/\n\tlongClick\x12\x0f.aurum.ReqClick\x1a\x0f.aurum.RspClick\"\x00\x12+\n\x05\x66lick\x12\x0f.aurum.ReqFlick\x1a\x0f.aurum.RspFlick\"\x00\x12\x37\n\ttouchDown\x12\x13.aurum.ReqTouchDown\x1a\x13.aurum.RspTouchDown\"\x00\x12\x37\n\ttouchMove\x12\x13.aurum.ReqTouchMove\x1a\x13.aurum.RspTouchMove\"\x00\x12\x31\n\x07touchUp\x12\x11.aurum.ReqTouchUp\x1a\x11.aurum.RspTouchUp\"\x00\x12<\n\ninstallApp\x12\x14.aurum.ReqInstallApp\x1a\x14.aurum.RspInstallApp\"\x00(\x01\x12\x37\n\tremoveApp\x12\x13.aurum.ReqRemoveApp\x1a\x13.aurum.RspRemoveApp\"\x00\x12:\n\ngetAppInfo\x12\x14.aurum.ReqGetAppInfo\x1a\x14.aurum.RspGetAppInfo\"\x00\x12\x37\n\tlaunchApp\x12\x13.aurum.ReqLaunchApp\x1a\x13.aurum.RspLaunchApp\"\x00\x12\x34\n\x08\x63loseApp\x12\x12.aurum.ReqCloseApp\x1a\x12.aurum.RspCloseApp\"\x00\x12\x43\n\rgetDeviceTime\x12\x17.aurum.ReqGetDeviceTime\x1a\x17.aurum.RspGetDeviceTime\"\x00\x12=\n\x0bgetLocation\x12\x15.aurum.ReqGetLocation\x1a\x15.aurum.RspGetLocation\"\x00\x12)\n\x07sendKey\x12\r.aurum.ReqKey\x1a\r.aurum.RspKey\"\x00\x12H\n\x0etakeScreenshot\x12\x18.aurum.ReqTakeScreenshot\x1a\x18.aurum.RspTakeScreenshot\"\x00\x30\x01\x12\x46\n\x0e\x64umpObjectTree\x12\x18.aurum.ReqDumpObjectTree\x1a\x18.aurum.RspDumpObjectTree\"\x00\x12\x43\n\rgetScreenSize\x12\x17.aurum.ReqGetScreenSize\x1a\x17.aurum.RspGetScreenSize\"\x00\x12R\n\x12\x61\x63tionAndWaitEvent\x12\x1c.aurum.ReqActionAndWaitEvent\x1a\x1c.aurum.RspActionAndWaitEvent\"\x00\x12\x34\n\x08setFocus\x12\x12.aurum.ReqSetFocus\x1a\x12.aurum.RspSetFocus\"\x00\x12@\n\x0c\x66indElements\x12\x16.aurum.ReqFindElements\x1a\x16.aurum.RspFindElements\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0b\x61urum.proto\x12\x05\x61urum\"\xda\x04\n\x07\x45lement\x12\x11\n\telementId\x18\x01 \x01(\t\x12\x1d\n\x05\x63hild\x18\x02 \x03(\x0b\x32\x0e.aurum.Element\x12\x1d\n\x08geometry\x18\x03 \x01(\x0b\x32\x0b.aurum.Rect\x12+\n\x16windowRelativeGeometry\x18\x04 \x01(\x0b\x32\x0b.aurum.Rect\x12\x12\n\nwidgetType\x18\x05 \x01(\t\x12\x13\n\x0bwidgetStyle\x18\x06 \x01(\t\x12\x0c\n\x04text\x18\x07 \x01(\t\x12\r\n\x05xpath\x18\x08 \x01(\t\x12\x0f\n\x07ocrText\x18\t \x01(\t\x12\x14\n\x0c\x61utomationId\x18\n \x01(\t\x12\x0f\n\x07package\x18\x0b \x01(\t\x12\x0c\n\x04role\x18\x0c \x01(\t\x12\x0f\n\x07toolkit\x18\r \x01(\t\x12\x11\n\tisChecked\x18\x0e \x01(\x08\x12\x13\n\x0bisCheckable\x18\x0f \x01(\x08\x12\x13\n\x0bisClickable\x18\x10 \x01(\x08\x12\x11\n\tisEnabled\x18\x11 \x01(\x08\x12\x11\n\tisFocused\x18\x12 \x01(\x08\x12\x13\n\x0bisFocusable\x18\x13 \x01(\x08\x12\x14\n\x0cisScrollable\x18\x14 \x01(\x08\x12\x12\n\nisSelected\x18\x15 \x01(\x08\x12\x11\n\tisShowing\x18\x16 \x01(\x08\x12\x10\n\x08isActive\x18\x17 \x01(\x08\x12\x11\n\tisVisible\x18\x18 \x01(\x08\x12\x14\n\x0cisSelectable\x18\x19 \x01(\x08\x12\x10\n\x08minValue\x18\x1a \x01(\x01\x12\x10\n\x08maxValue\x18\x1b \x01(\x01\x12\r\n\x05value\x18\x1c \x01(\x01\x12\x11\n\tincrement\x18\x1d \x01(\x01\"\x1d\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\";\n\x04Rect\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\"(\n\nLaunchData\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\xe6\x06\n\x0eReqFindElement\x12\x13\n\telementId\x18\x01 \x01(\tH\x00\x12\x16\n\x0c\x61utomationId\x18\x02 \x01(\tH\x01\x12\x13\n\ttextField\x18\x03 \x01(\tH\x02\x12\x14\n\nwidgetType\x18\x04 \x01(\tH\x03\x12\x15\n\x0bwidgetStyle\x18\x05 \x01(\tH\x04\x12\x13\n\tisChecked\x18\x06 \x01(\x08H\x05\x12\x15\n\x0bisCheckable\x18\x07 \x01(\x08H\x06\x12\x15\n\x0bisClickable\x18\x08 \x01(\x08H\x07\x12\x13\n\tisEnabled\x18\t \x01(\x08H\x08\x12\x13\n\tisFocused\x18\n \x01(\x08H\t\x12\x15\n\x0bisFocusable\x18\x0b \x01(\x08H\n\x12\x16\n\x0cisScrollable\x18\x0c \x01(\x08H\x0b\x12\x14\n\nisSelected\x18\r \x01(\x08H\x0c\x12\x13\n\tisShowing\x18\x0e \x01(\x08H\r\x12\x12\n\x08isActive\x18\x0f \x01(\x08H\x0e\x12\x12\n\x08minDepth\x18\x10 \x01(\x05H\x0f\x12\x12\n\x08maxDepth\x18\x11 \x01(\x05H\x10\x12\x15\n\x0bpackageName\x18\x12 \x01(\tH\x11\x12\x1a\n\x10textPartialMatch\x18\x13 \x01(\tH\x12\x12\x0f\n\x05xpath\x18\x14 \x01(\tH\x13\x12\x11\n\x07ocrText\x18\x15 \x01(\tH\x14\x12\x1f\n\x08geometry\x18\x16 \x01(\x0b\x32\x0b.aurum.RectH\x15\x12\'\n\x08\x63hildren\x18\x17 \x03(\x0b\x32\x15.aurum.ReqFindElementB\x0c\n\n_elementidB\x0f\n\r_automationidB\x0c\n\n_textfieldB\r\n\x0b_widgettypeB\x0e\n\x0c_widgetstyleB\x0c\n\n_ischeckedB\x0e\n\x0c_ischeckableB\x0e\n\x0c_isclickableB\x0c\n\n_isenabledB\x0c\n\n_isfocusedB\x0e\n\x0c_isfocusableB\x0f\n\r_isscrollableB\r\n\x0b_isselectedB\x0c\n\n_isshowingB\x0b\n\t_isactiveB\x0b\n\t_mindepthB\x0b\n\t_maxdepthB\x0e\n\x0c_packagenameB\x13\n\x11_textpartialmatchB\x08\n\x06_xpathB\n\n\x08_ocrtextB\x0b\n\t_geometry\"S\n\x0eRspFindElement\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x1f\n\x07\x65lement\x18\x02 \x01(\x0b\x32\x0e.aurum.Element\"\xe8\x06\n\x0fReqFindElements\x12\x13\n\telementId\x18\x01 \x01(\tH\x00\x12\x16\n\x0c\x61utomationId\x18\x02 \x01(\tH\x01\x12\x13\n\ttextField\x18\x03 \x01(\tH\x02\x12\x14\n\nwidgetType\x18\x04 \x01(\tH\x03\x12\x15\n\x0bwidgetStyle\x18\x05 \x01(\tH\x04\x12\x13\n\tisChecked\x18\x06 \x01(\x08H\x05\x12\x15\n\x0bisCheckable\x18\x07 \x01(\x08H\x06\x12\x15\n\x0bisClickable\x18\x08 \x01(\x08H\x07\x12\x13\n\tisEnabled\x18\t \x01(\x08H\x08\x12\x13\n\tisFocused\x18\n \x01(\x08H\t\x12\x15\n\x0bisFocusable\x18\x0b \x01(\x08H\n\x12\x16\n\x0cisScrollable\x18\x0c \x01(\x08H\x0b\x12\x14\n\nisSelected\x18\r \x01(\x08H\x0c\x12\x13\n\tisShowing\x18\x0e \x01(\x08H\r\x12\x12\n\x08isActive\x18\x0f \x01(\x08H\x0e\x12\x12\n\x08minDepth\x18\x10 \x01(\x05H\x0f\x12\x12\n\x08maxDepth\x18\x11 \x01(\x05H\x10\x12\x15\n\x0bpackageName\x18\x12 \x01(\tH\x11\x12\x1a\n\x10textPartialMatch\x18\x13 \x01(\tH\x12\x12\x0f\n\x05xpath\x18\x14 \x01(\tH\x13\x12\x11\n\x07ocrText\x18\x15 \x01(\tH\x14\x12\x1f\n\x08geometry\x18\x16 \x01(\x0b\x32\x0b.aurum.RectH\x15\x12(\n\x08\x63hildren\x18\x17 \x03(\x0b\x32\x16.aurum.ReqFindElementsB\x0c\n\n_elementidB\x0f\n\r_automationidB\x0c\n\n_textfieldB\r\n\x0b_widgettypeB\x0e\n\x0c_widgetstyleB\x0c\n\n_ischeckedB\x0e\n\x0c_ischeckableB\x0e\n\x0c_isclickableB\x0c\n\n_isenabledB\x0c\n\n_isfocusedB\x0e\n\x0c_isfocusableB\x0f\n\r_isscrollableB\r\n\x0b_isselectedB\x0c\n\n_isshowingB\x0b\n\t_isactiveB\x0b\n\t_mindepthB\x0b\n\t_maxdepthB\x0e\n\x0c_packagenameB\x13\n\x11_textpartialmatchB\x08\n\x06_xpathB\n\n\x08_ocrtextB\x0b\n\t_geometry\"U\n\x0fRspFindElements\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12 \n\x08\x65lements\x18\x02 \x03(\x0b\x32\x0e.aurum.Element\"@\n\x0bReqGetValue\x12\x11\n\telementId\x18\x01 \x01(\t\x12\x1e\n\x04type\x18\x02 \x01(\x0e\x32\x10.aurum.ParamType\"\xb0\x01\n\x0bRspGetValue\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x1e\n\x04type\x18\x02 \x01(\x0e\x32\x10.aurum.ParamType\x12\x15\n\x0bstringValue\x18\x03 \x01(\tH\x00\x12\x12\n\x08intValue\x18\x04 \x01(\x05H\x00\x12\x15\n\x0b\x64oubleValue\x18\x05 \x01(\x01H\x00\x12\x13\n\tboolValue\x18\x06 \x01(\x08H\x00\x42\x08\n\x06params\"\xa1\x01\n\x0bReqSetValue\x12\x11\n\telementId\x18\x01 \x01(\t\x12\x1e\n\x04type\x18\x02 \x01(\x0e\x32\x10.aurum.ParamType\x12\x15\n\x0bstringValue\x18\x03 \x01(\tH\x00\x12\x12\n\x08intValue\x18\x04 \x01(\x05H\x00\x12\x15\n\x0b\x64oubleValue\x18\x05 \x01(\x01H\x00\x12\x13\n\tboolValue\x18\x06 \x01(\x08H\x00\x42\x08\n\x06params\"/\n\x0bRspSetValue\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"o\n\nReqGetSize\x12)\n\x04type\x18\x01 \x01(\x0e\x32\x1b.aurum.ReqGetSize.CoordType\x12\x11\n\telementId\x18\x02 \x01(\t\"#\n\tCoordType\x12\n\n\x06SCREEN\x10\x00\x12\n\n\x06WINDOW\x10\x01\"I\n\nRspGetSize\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x19\n\x04size\x18\x02 \x01(\x0b\x32\x0b.aurum.Rect\"\x1d\n\x08ReqClear\x12\x11\n\telementId\x18\x01 \x01(\t\",\n\x08RspClear\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"\x93\x02\n\x0fReqGetAttribute\x12\x11\n\telementId\x18\x01 \x01(\t\x12\x35\n\tattribute\x18\x02 \x01(\x0e\x32\".aurum.ReqGetAttribute.RequestType\"\xb5\x01\n\x0bRequestType\x12\x0b\n\x07VISIBLE\x10\x00\x12\r\n\tFOCUSABLE\x10\x01\x12\x0b\n\x07\x46OCUSED\x10\x02\x12\x0b\n\x07\x45NABLED\x10\x03\x12\r\n\tCLICKABLE\x10\x04\x12\x0e\n\nSCROLLABLE\x10\x05\x12\r\n\tCHECKABLE\x10\x06\x12\x0b\n\x07\x43HECKED\x10\x07\x12\x0c\n\x08SELECTED\x10\x08\x12\x0e\n\nSELECTABLE\x10\t\x12\x0b\n\x07SHOWING\x10\n\x12\n\n\x06\x41\x43TIVE\x10\x0b\"F\n\x0fRspGetAttribute\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x11\n\tboolValue\x18\x02 \x01(\x08\"\xae\x01\n\x08ReqClick\x12)\n\x04type\x18\x01 \x01(\x0e\x32\x1b.aurum.ReqClick.RequestType\x12\x13\n\telementId\x18\x02 \x01(\tH\x00\x12$\n\x0c\x63oordination\x18\x03 \x01(\x0b\x32\x0c.aurum.PointH\x00\"2\n\x0bRequestType\x12\r\n\tELEMENTID\x10\x00\x12\t\n\x05\x43OORD\x10\x01\x12\t\n\x05\x41TSPI\x10\x02\x42\x08\n\x06params\",\n\x08RspClick\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"`\n\x08ReqFlick\x12 \n\nstartPoint\x18\x01 \x01(\x0b\x32\x0c.aurum.Point\x12\x1e\n\x08\x65ndPoint\x18\x02 \x01(\x0b\x32\x0c.aurum.Point\x12\x12\n\ndurationMs\x18\x03 \x01(\x05\",\n\x08RspFlick\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"2\n\x0cReqTouchDown\x12\"\n\x0c\x63oordination\x18\x01 \x01(\x0b\x32\x0c.aurum.Point\"?\n\x0cRspTouchDown\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\r\n\x05seqId\x18\x02 \x01(\x05\"A\n\x0cReqTouchMove\x12\r\n\x05seqId\x18\x01 \x01(\x05\x12\"\n\x0c\x63oordination\x18\x02 \x01(\x0b\x32\x0c.aurum.Point\"0\n\x0cRspTouchMove\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"?\n\nReqTouchUp\x12\r\n\x05seqId\x18\x01 \x01(\x05\x12\"\n\x0c\x63oordination\x18\x02 \x01(\x0b\x32\x0c.aurum.Point\".\n\nRspTouchUp\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\" \n\rReqInstallApp\x12\x0f\n\x07package\x18\x01 \x01(\x0c\"1\n\rRspInstallApp\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"#\n\x0cReqRemoveApp\x12\x13\n\x0bpackageName\x18\x01 \x01(\t\"0\n\x0cRspRemoveApp\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"$\n\rReqGetAppInfo\x12\x13\n\x0bpackageName\x18\x01 \x01(\t\"l\n\rRspGetAppInfo\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x13\n\x0bisInstalled\x18\x02 \x01(\x08\x12\x11\n\tisRunning\x18\x03 \x01(\x08\x12\x11\n\tisFocused\x18\x04 \x01(\x08\"D\n\x0cReqLaunchApp\x12\x13\n\x0bpackageName\x18\x01 \x01(\t\x12\x1f\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x11.aurum.LaunchData\"0\n\x0cRspLaunchApp\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"\"\n\x0bReqCloseApp\x12\x13\n\x0bpackageName\x18\x01 \x01(\t\"/\n\x0bRspCloseApp\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"i\n\x10ReqGetDeviceTime\x12.\n\x04type\x18\x01 \x01(\x0e\x32 .aurum.ReqGetDeviceTime.TimeType\"%\n\x08TimeType\x12\r\n\tWALLCLOCK\x10\x00\x12\n\n\x06SYSTEM\x10\x01\"b\n\x10RspGetDeviceTime\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x14\n\x0ctimestampUTC\x18\x02 \x01(\x03\x12\x16\n\x0elocaleDatetime\x18\x03 \x01(\t\"\x10\n\x0eReqGetLocation\"L\n\x0eRspGetLocation\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x0b\n\x03\x61lt\x18\x02 \x01(\x01\x12\x0b\n\x03lat\x18\x03 \x01(\x01\"\xdf\x02\n\x06ReqKey\x12#\n\x04type\x18\x01 \x01(\x0e\x32\x15.aurum.ReqKey.KeyType\x12/\n\nactionType\x18\x02 \x01(\x0e\x32\x1b.aurum.ReqKey.KeyActionType\x12\x13\n\x0bXF86keyCode\x18\x03 \x01(\t\x12\x12\n\ndurationMs\x18\x04 \x01(\x05\x12\x12\n\nintervalMs\x18\x05 \x01(\x05\"p\n\x07KeyType\x12\x08\n\x04\x42\x41\x43K\x10\x00\x12\x08\n\x04MENU\x10\x01\x12\x08\n\x04HOME\x10\x02\x12\t\n\x05VOLUP\x10\x03\x12\x0b\n\x07VOLDOWN\x10\x04\x12\t\n\x05POWER\x10\x05\x12\x08\n\x04XF86\x10\x07\x12\x0b\n\x07WHEELUP\x10\x08\x12\r\n\tWHEELDOWN\x10\t\"P\n\rKeyActionType\x12\n\n\x06STROKE\x10\x00\x12\x0f\n\x0bLONG_STROKE\x10\x01\x12\t\n\x05PRESS\x10\x02\x12\x0b\n\x07RELEASE\x10\x03\x12\n\n\x06REPEAT\x10\x04\"*\n\x06RspKey\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"\x13\n\x11ReqTakeScreenshot\"\"\n\x11RspTakeScreenshot\x12\r\n\x05image\x18\x01 \x01(\x0c\"\n\n\x08ReqEmpty\"\n\n\x08RspEmpty\"&\n\x11ReqDumpObjectTree\x12\x11\n\telementId\x18\x01 \x01(\t\"T\n\x11RspDumpObjectTree\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x1d\n\x05roots\x18\x02 \x03(\x0b\x32\x0e.aurum.Element\"\x12\n\x10ReqGetScreenSize\"O\n\x10RspGetScreenSize\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x19\n\x04size\x18\x02 \x01(\x0b\x32\x0b.aurum.Rect\"\xe5\x02\n\x15ReqActionAndWaitEvent\x12\x35\n\x04type\x18\x01 \x01(\x0e\x32\'.aurum.ReqActionAndWaitEvent.ActionType\x12\x13\n\telementId\x18\x02 \x01(\tH\x00\x12\x15\n\x0bXF86keyCode\x18\x03 \x01(\tH\x00\x12\x39\n\teventType\x18\x04 \x01(\x0e\x32&.aurum.ReqActionAndWaitEvent.EventType\x12\x11\n\ttimeoutMs\x18\x05 \x01(\x05\"+\n\nActionType\x12\t\n\x05\x43LICK\x10\x00\x12\x07\n\x03KEY\x10\x01\x12\t\n\x05\x46OCUS\x10\x02\"d\n\tEventType\x12\x19\n\x15\x45VENT_WINDOW_ACTIVATE\x10\x00\x12\x1b\n\x17\x45VENT_WINDOW_DEACTIVATE\x10\x01\x12\x1f\n\x1b\x45VENT_STATE_CHANGED_FOCUSED\x10\x02\x42\x08\n\x06params\"9\n\x15RspActionAndWaitEvent\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\" \n\x0bReqSetFocus\x12\x11\n\telementId\x18\x01 \x01(\t\"/\n\x0bRspSetFocus\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\"\x1c\n\x1aReqGetActiveAppToolkitName\"S\n\x1aRspGetActiveAppToolkitName\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x13\n\x0btoolkitName\x18\x02 \x01(\t\";\n\x17ReqEnableScreenAnalyzer\x12\x0e\n\x06\x65nable\x18\x01 \x01(\x08\x12\x10\n\x08serverIp\x18\x02 \x01(\t\";\n\x17RspEnableScreenAnalyzer\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\".\n\x19ReqGetTextMinBoundingRect\x12\x11\n\telementId\x18\x01 \x01(\t\"X\n\x19RspGetTextMinBoundingRect\x12 \n\x06status\x18\x01 \x01(\x0e\x32\x10.aurum.RspStatus\x12\x19\n\x04size\x18\x02 \x01(\x0b\x32\x0b.aurum.Rect*&\n\tRspStatus\x12\x06\n\x02OK\x10\x00\x12\x06\n\x02NA\x10\x01\x12\t\n\x05\x45RROR\x10\x02*6\n\tParamType\x12\n\n\x06STRING\x10\x00\x12\x07\n\x03INT\x10\x01\x12\n\n\x06\x44OUBLE\x10\x02\x12\x08\n\x04\x42OOL\x10\x03\x32\xcb\x0e\n\tBootstrap\x12\x30\n\nkillServer\x12\x0f.aurum.ReqEmpty\x1a\x0f.aurum.RspEmpty\"\x00\x12=\n\x0b\x66indElement\x12\x15.aurum.ReqFindElement\x1a\x15.aurum.RspFindElement\"\x00\x12\x34\n\x08getValue\x12\x12.aurum.ReqGetValue\x1a\x12.aurum.RspGetValue\"\x00\x12\x34\n\x08setValue\x12\x12.aurum.ReqSetValue\x1a\x12.aurum.RspSetValue\"\x00\x12\x31\n\x07getSize\x12\x11.aurum.ReqGetSize\x1a\x11.aurum.RspGetSize\"\x00\x12+\n\x05\x63lear\x12\x0f.aurum.ReqClear\x1a\x0f.aurum.RspClear\"\x00\x12@\n\x0cgetAttribute\x12\x16.aurum.ReqGetAttribute\x1a\x16.aurum.RspGetAttribute\"\x00\x12+\n\x05\x63lick\x12\x0f.aurum.ReqClick\x1a\x0f.aurum.RspClick\"\x00\x12/\n\tlongClick\x12\x0f.aurum.ReqClick\x1a\x0f.aurum.RspClick\"\x00\x12+\n\x05\x66lick\x12\x0f.aurum.ReqFlick\x1a\x0f.aurum.RspFlick\"\x00\x12\x37\n\ttouchDown\x12\x13.aurum.ReqTouchDown\x1a\x13.aurum.RspTouchDown\"\x00\x12\x37\n\ttouchMove\x12\x13.aurum.ReqTouchMove\x1a\x13.aurum.RspTouchMove\"\x00\x12\x31\n\x07touchUp\x12\x11.aurum.ReqTouchUp\x1a\x11.aurum.RspTouchUp\"\x00\x12<\n\ninstallApp\x12\x14.aurum.ReqInstallApp\x1a\x14.aurum.RspInstallApp\"\x00(\x01\x12\x37\n\tremoveApp\x12\x13.aurum.ReqRemoveApp\x1a\x13.aurum.RspRemoveApp\"\x00\x12:\n\ngetAppInfo\x12\x14.aurum.ReqGetAppInfo\x1a\x14.aurum.RspGetAppInfo\"\x00\x12\x37\n\tlaunchApp\x12\x13.aurum.ReqLaunchApp\x1a\x13.aurum.RspLaunchApp\"\x00\x12\x34\n\x08\x63loseApp\x12\x12.aurum.ReqCloseApp\x1a\x12.aurum.RspCloseApp\"\x00\x12\x43\n\rgetDeviceTime\x12\x17.aurum.ReqGetDeviceTime\x1a\x17.aurum.RspGetDeviceTime\"\x00\x12=\n\x0bgetLocation\x12\x15.aurum.ReqGetLocation\x1a\x15.aurum.RspGetLocation\"\x00\x12)\n\x07sendKey\x12\r.aurum.ReqKey\x1a\r.aurum.RspKey\"\x00\x12H\n\x0etakeScreenshot\x12\x18.aurum.ReqTakeScreenshot\x1a\x18.aurum.RspTakeScreenshot\"\x00\x30\x01\x12\x46\n\x0e\x64umpObjectTree\x12\x18.aurum.ReqDumpObjectTree\x1a\x18.aurum.RspDumpObjectTree\"\x00\x12\x43\n\rgetScreenSize\x12\x17.aurum.ReqGetScreenSize\x1a\x17.aurum.RspGetScreenSize\"\x00\x12R\n\x12\x61\x63tionAndWaitEvent\x12\x1c.aurum.ReqActionAndWaitEvent\x1a\x1c.aurum.RspActionAndWaitEvent\"\x00\x12\x34\n\x08setFocus\x12\x12.aurum.ReqSetFocus\x1a\x12.aurum.RspSetFocus\"\x00\x12@\n\x0c\x66indElements\x12\x16.aurum.ReqFindElements\x1a\x16.aurum.RspFindElements\"\x00\x12\x61\n\x17getActiveAppToolkitName\x12!.aurum.ReqGetActiveAppToolkitName\x1a!.aurum.RspGetActiveAppToolkitName\"\x00\x12X\n\x14\x65nableScreenAnalyzer\x12\x1e.aurum.ReqEnableScreenAnalyzer\x1a\x1e.aurum.RspEnableScreenAnalyzer\"\x00\x12^\n\x16getTextMinBoundingRect\x12 .aurum.ReqGetTextMinBoundingRect\x1a .aurum.RspGetTextMinBoundingRect\"\x00\x62\x06proto3')
 
 _RSPSTATUS = DESCRIPTOR.enum_types_by_name['RspStatus']
 RspStatus = enum_type_wrapper.EnumTypeWrapper(_RSPSTATUS)
@@ -86,6 +86,12 @@ _REQACTIONANDWAITEVENT = DESCRIPTOR.message_types_by_name['ReqActionAndWaitEvent
 _RSPACTIONANDWAITEVENT = DESCRIPTOR.message_types_by_name['RspActionAndWaitEvent']
 _REQSETFOCUS = DESCRIPTOR.message_types_by_name['ReqSetFocus']
 _RSPSETFOCUS = DESCRIPTOR.message_types_by_name['RspSetFocus']
+_REQGETACTIVEAPPTOOLKITNAME = DESCRIPTOR.message_types_by_name['ReqGetActiveAppToolkitName']
+_RSPGETACTIVEAPPTOOLKITNAME = DESCRIPTOR.message_types_by_name['RspGetActiveAppToolkitName']
+_REQENABLESCREENANALYZER = DESCRIPTOR.message_types_by_name['ReqEnableScreenAnalyzer']
+_RSPENABLESCREENANALYZER = DESCRIPTOR.message_types_by_name['RspEnableScreenAnalyzer']
+_REQGETTEXTMINBOUNDINGRECT = DESCRIPTOR.message_types_by_name['ReqGetTextMinBoundingRect']
+_RSPGETTEXTMINBOUNDINGRECT = DESCRIPTOR.message_types_by_name['RspGetTextMinBoundingRect']
 _REQGETSIZE_COORDTYPE = _REQGETSIZE.enum_types_by_name['CoordType']
 _REQGETATTRIBUTE_REQUESTTYPE = _REQGETATTRIBUTE.enum_types_by_name['RequestType']
 _REQCLICK_REQUESTTYPE = _REQCLICK.enum_types_by_name['RequestType']
@@ -486,142 +492,196 @@ RspSetFocus = _reflection.GeneratedProtocolMessageType('RspSetFocus', (_message.
   })
 _sym_db.RegisterMessage(RspSetFocus)
 
+ReqGetActiveAppToolkitName = _reflection.GeneratedProtocolMessageType('ReqGetActiveAppToolkitName', (_message.Message,), {
+  'DESCRIPTOR' : _REQGETACTIVEAPPTOOLKITNAME,
+  '__module__' : 'aurum_pb2'
+  # @@protoc_insertion_point(class_scope:aurum.ReqGetActiveAppToolkitName)
+  })
+_sym_db.RegisterMessage(ReqGetActiveAppToolkitName)
+
+RspGetActiveAppToolkitName = _reflection.GeneratedProtocolMessageType('RspGetActiveAppToolkitName', (_message.Message,), {
+  'DESCRIPTOR' : _RSPGETACTIVEAPPTOOLKITNAME,
+  '__module__' : 'aurum_pb2'
+  # @@protoc_insertion_point(class_scope:aurum.RspGetActiveAppToolkitName)
+  })
+_sym_db.RegisterMessage(RspGetActiveAppToolkitName)
+
+ReqEnableScreenAnalyzer = _reflection.GeneratedProtocolMessageType('ReqEnableScreenAnalyzer', (_message.Message,), {
+  'DESCRIPTOR' : _REQENABLESCREENANALYZER,
+  '__module__' : 'aurum_pb2'
+  # @@protoc_insertion_point(class_scope:aurum.ReqEnableScreenAnalyzer)
+  })
+_sym_db.RegisterMessage(ReqEnableScreenAnalyzer)
+
+RspEnableScreenAnalyzer = _reflection.GeneratedProtocolMessageType('RspEnableScreenAnalyzer', (_message.Message,), {
+  'DESCRIPTOR' : _RSPENABLESCREENANALYZER,
+  '__module__' : 'aurum_pb2'
+  # @@protoc_insertion_point(class_scope:aurum.RspEnableScreenAnalyzer)
+  })
+_sym_db.RegisterMessage(RspEnableScreenAnalyzer)
+
+ReqGetTextMinBoundingRect = _reflection.GeneratedProtocolMessageType('ReqGetTextMinBoundingRect', (_message.Message,), {
+  'DESCRIPTOR' : _REQGETTEXTMINBOUNDINGRECT,
+  '__module__' : 'aurum_pb2'
+  # @@protoc_insertion_point(class_scope:aurum.ReqGetTextMinBoundingRect)
+  })
+_sym_db.RegisterMessage(ReqGetTextMinBoundingRect)
+
+RspGetTextMinBoundingRect = _reflection.GeneratedProtocolMessageType('RspGetTextMinBoundingRect', (_message.Message,), {
+  'DESCRIPTOR' : _RSPGETTEXTMINBOUNDINGRECT,
+  '__module__' : 'aurum_pb2'
+  # @@protoc_insertion_point(class_scope:aurum.RspGetTextMinBoundingRect)
+  })
+_sym_db.RegisterMessage(RspGetTextMinBoundingRect)
+
 _BOOTSTRAP = DESCRIPTOR.services_by_name['Bootstrap']
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _RSPSTATUS._serialized_start=6268
-  _RSPSTATUS._serialized_end=6306
-  _PARAMTYPE._serialized_start=6308
-  _PARAMTYPE._serialized_end=6362
+  _RSPSTATUS._serialized_start=6879
+  _RSPSTATUS._serialized_end=6917
+  _PARAMTYPE._serialized_start=6919
+  _PARAMTYPE._serialized_end=6973
   _ELEMENT._serialized_start=23
-  _ELEMENT._serialized_end=595
-  _POINT._serialized_start=597
-  _POINT._serialized_end=626
-  _RECT._serialized_start=628
-  _RECT._serialized_end=687
-  _LAUNCHDATA._serialized_start=689
-  _LAUNCHDATA._serialized_end=729
-  _REQFINDELEMENT._serialized_start=732
-  _REQFINDELEMENT._serialized_end=1525
-  _RSPFINDELEMENT._serialized_start=1527
-  _RSPFINDELEMENT._serialized_end=1610
-  _REQFINDELEMENTS._serialized_start=1613
-  _REQFINDELEMENTS._serialized_end=2408
-  _RSPFINDELEMENTS._serialized_start=2410
-  _RSPFINDELEMENTS._serialized_end=2495
-  _REQGETVALUE._serialized_start=2497
-  _REQGETVALUE._serialized_end=2561
-  _RSPGETVALUE._serialized_start=2564
-  _RSPGETVALUE._serialized_end=2740
-  _REQSETVALUE._serialized_start=2743
-  _REQSETVALUE._serialized_end=2904
-  _RSPSETVALUE._serialized_start=2906
-  _RSPSETVALUE._serialized_end=2953
-  _REQGETSIZE._serialized_start=2955
-  _REQGETSIZE._serialized_end=3066
-  _REQGETSIZE_COORDTYPE._serialized_start=3031
-  _REQGETSIZE_COORDTYPE._serialized_end=3066
-  _RSPGETSIZE._serialized_start=3068
-  _RSPGETSIZE._serialized_end=3141
-  _REQCLEAR._serialized_start=3143
-  _REQCLEAR._serialized_end=3172
-  _RSPCLEAR._serialized_start=3174
-  _RSPCLEAR._serialized_end=3218
-  _REQGETATTRIBUTE._serialized_start=3221
-  _REQGETATTRIBUTE._serialized_end=3496
-  _REQGETATTRIBUTE_REQUESTTYPE._serialized_start=3315
-  _REQGETATTRIBUTE_REQUESTTYPE._serialized_end=3496
-  _RSPGETATTRIBUTE._serialized_start=3498
-  _RSPGETATTRIBUTE._serialized_end=3568
-  _REQCLICK._serialized_start=3571
-  _REQCLICK._serialized_end=3745
-  _REQCLICK_REQUESTTYPE._serialized_start=3685
-  _REQCLICK_REQUESTTYPE._serialized_end=3735
-  _RSPCLICK._serialized_start=3747
-  _RSPCLICK._serialized_end=3791
-  _REQFLICK._serialized_start=3793
-  _REQFLICK._serialized_end=3889
-  _RSPFLICK._serialized_start=3891
-  _RSPFLICK._serialized_end=3935
-  _REQTOUCHDOWN._serialized_start=3937
-  _REQTOUCHDOWN._serialized_end=3987
-  _RSPTOUCHDOWN._serialized_start=3989
-  _RSPTOUCHDOWN._serialized_end=4052
-  _REQTOUCHMOVE._serialized_start=4054
-  _REQTOUCHMOVE._serialized_end=4119
-  _RSPTOUCHMOVE._serialized_start=4121
-  _RSPTOUCHMOVE._serialized_end=4169
-  _REQTOUCHUP._serialized_start=4171
-  _REQTOUCHUP._serialized_end=4234
-  _RSPTOUCHUP._serialized_start=4236
-  _RSPTOUCHUP._serialized_end=4282
-  _REQINSTALLAPP._serialized_start=4284
-  _REQINSTALLAPP._serialized_end=4316
-  _RSPINSTALLAPP._serialized_start=4318
-  _RSPINSTALLAPP._serialized_end=4367
-  _REQREMOVEAPP._serialized_start=4369
-  _REQREMOVEAPP._serialized_end=4404
-  _RSPREMOVEAPP._serialized_start=4406
-  _RSPREMOVEAPP._serialized_end=4454
-  _REQGETAPPINFO._serialized_start=4456
-  _REQGETAPPINFO._serialized_end=4492
-  _RSPGETAPPINFO._serialized_start=4494
-  _RSPGETAPPINFO._serialized_end=4602
-  _REQLAUNCHAPP._serialized_start=4604
-  _REQLAUNCHAPP._serialized_end=4672
-  _RSPLAUNCHAPP._serialized_start=4674
-  _RSPLAUNCHAPP._serialized_end=4722
-  _REQCLOSEAPP._serialized_start=4724
-  _REQCLOSEAPP._serialized_end=4758
-  _RSPCLOSEAPP._serialized_start=4760
-  _RSPCLOSEAPP._serialized_end=4807
-  _REQGETDEVICETIME._serialized_start=4809
-  _REQGETDEVICETIME._serialized_end=4914
-  _REQGETDEVICETIME_TIMETYPE._serialized_start=4877
-  _REQGETDEVICETIME_TIMETYPE._serialized_end=4914
-  _RSPGETDEVICETIME._serialized_start=4916
-  _RSPGETDEVICETIME._serialized_end=5014
-  _REQGETLOCATION._serialized_start=5016
-  _REQGETLOCATION._serialized_end=5032
-  _RSPGETLOCATION._serialized_start=5034
-  _RSPGETLOCATION._serialized_end=5110
-  _REQKEY._serialized_start=5113
-  _REQKEY._serialized_end=5412
-  _REQKEY_KEYTYPE._serialized_start=5230
-  _REQKEY_KEYTYPE._serialized_end=5342
-  _REQKEY_KEYACTIONTYPE._serialized_start=5344
-  _REQKEY_KEYACTIONTYPE._serialized_end=5412
-  _RSPKEY._serialized_start=5414
-  _RSPKEY._serialized_end=5456
-  _REQTAKESCREENSHOT._serialized_start=5458
-  _REQTAKESCREENSHOT._serialized_end=5477
-  _RSPTAKESCREENSHOT._serialized_start=5479
-  _RSPTAKESCREENSHOT._serialized_end=5513
-  _REQEMPTY._serialized_start=5515
-  _REQEMPTY._serialized_end=5525
-  _RSPEMPTY._serialized_start=5527
-  _RSPEMPTY._serialized_end=5537
-  _REQDUMPOBJECTTREE._serialized_start=5539
-  _REQDUMPOBJECTTREE._serialized_end=5577
-  _RSPDUMPOBJECTTREE._serialized_start=5579
-  _RSPDUMPOBJECTTREE._serialized_end=5663
-  _REQGETSCREENSIZE._serialized_start=5665
-  _REQGETSCREENSIZE._serialized_end=5683
-  _RSPGETSCREENSIZE._serialized_start=5685
-  _RSPGETSCREENSIZE._serialized_end=5764
-  _REQACTIONANDWAITEVENT._serialized_start=5767
-  _REQACTIONANDWAITEVENT._serialized_end=6124
-  _REQACTIONANDWAITEVENT_ACTIONTYPE._serialized_start=5969
-  _REQACTIONANDWAITEVENT_ACTIONTYPE._serialized_end=6012
-  _REQACTIONANDWAITEVENT_EVENTTYPE._serialized_start=6014
-  _REQACTIONANDWAITEVENT_EVENTTYPE._serialized_end=6114
-  _RSPACTIONANDWAITEVENT._serialized_start=6126
-  _RSPACTIONANDWAITEVENT._serialized_end=6183
-  _REQSETFOCUS._serialized_start=6185
-  _REQSETFOCUS._serialized_end=6217
-  _RSPSETFOCUS._serialized_start=6219
-  _RSPSETFOCUS._serialized_end=6266
-  _BOOTSTRAP._serialized_start=6365
-  _BOOTSTRAP._serialized_end=7947
+  _ELEMENT._serialized_end=625
+  _POINT._serialized_start=627
+  _POINT._serialized_end=656
+  _RECT._serialized_start=658
+  _RECT._serialized_end=717
+  _LAUNCHDATA._serialized_start=719
+  _LAUNCHDATA._serialized_end=759
+  _REQFINDELEMENT._serialized_start=762
+  _REQFINDELEMENT._serialized_end=1632
+  _RSPFINDELEMENT._serialized_start=1634
+  _RSPFINDELEMENT._serialized_end=1717
+  _REQFINDELEMENTS._serialized_start=1720
+  _REQFINDELEMENTS._serialized_end=2592
+  _RSPFINDELEMENTS._serialized_start=2594
+  _RSPFINDELEMENTS._serialized_end=2679
+  _REQGETVALUE._serialized_start=2681
+  _REQGETVALUE._serialized_end=2745
+  _RSPGETVALUE._serialized_start=2748
+  _RSPGETVALUE._serialized_end=2924
+  _REQSETVALUE._serialized_start=2927
+  _REQSETVALUE._serialized_end=3088
+  _RSPSETVALUE._serialized_start=3090
+  _RSPSETVALUE._serialized_end=3137
+  _REQGETSIZE._serialized_start=3139
+  _REQGETSIZE._serialized_end=3250
+  _REQGETSIZE_COORDTYPE._serialized_start=3215
+  _REQGETSIZE_COORDTYPE._serialized_end=3250
+  _RSPGETSIZE._serialized_start=3252
+  _RSPGETSIZE._serialized_end=3325
+  _REQCLEAR._serialized_start=3327
+  _REQCLEAR._serialized_end=3356
+  _RSPCLEAR._serialized_start=3358
+  _RSPCLEAR._serialized_end=3402
+  _REQGETATTRIBUTE._serialized_start=3405
+  _REQGETATTRIBUTE._serialized_end=3680
+  _REQGETATTRIBUTE_REQUESTTYPE._serialized_start=3499
+  _REQGETATTRIBUTE_REQUESTTYPE._serialized_end=3680
+  _RSPGETATTRIBUTE._serialized_start=3682
+  _RSPGETATTRIBUTE._serialized_end=3752
+  _REQCLICK._serialized_start=3755
+  _REQCLICK._serialized_end=3929
+  _REQCLICK_REQUESTTYPE._serialized_start=3869
+  _REQCLICK_REQUESTTYPE._serialized_end=3919
+  _RSPCLICK._serialized_start=3931
+  _RSPCLICK._serialized_end=3975
+  _REQFLICK._serialized_start=3977
+  _REQFLICK._serialized_end=4073
+  _RSPFLICK._serialized_start=4075
+  _RSPFLICK._serialized_end=4119
+  _REQTOUCHDOWN._serialized_start=4121
+  _REQTOUCHDOWN._serialized_end=4171
+  _RSPTOUCHDOWN._serialized_start=4173
+  _RSPTOUCHDOWN._serialized_end=4236
+  _REQTOUCHMOVE._serialized_start=4238
+  _REQTOUCHMOVE._serialized_end=4303
+  _RSPTOUCHMOVE._serialized_start=4305
+  _RSPTOUCHMOVE._serialized_end=4353
+  _REQTOUCHUP._serialized_start=4355
+  _REQTOUCHUP._serialized_end=4418
+  _RSPTOUCHUP._serialized_start=4420
+  _RSPTOUCHUP._serialized_end=4466
+  _REQINSTALLAPP._serialized_start=4468
+  _REQINSTALLAPP._serialized_end=4500
+  _RSPINSTALLAPP._serialized_start=4502
+  _RSPINSTALLAPP._serialized_end=4551
+  _REQREMOVEAPP._serialized_start=4553
+  _REQREMOVEAPP._serialized_end=4588
+  _RSPREMOVEAPP._serialized_start=4590
+  _RSPREMOVEAPP._serialized_end=4638
+  _REQGETAPPINFO._serialized_start=4640
+  _REQGETAPPINFO._serialized_end=4676
+  _RSPGETAPPINFO._serialized_start=4678
+  _RSPGETAPPINFO._serialized_end=4786
+  _REQLAUNCHAPP._serialized_start=4788
+  _REQLAUNCHAPP._serialized_end=4856
+  _RSPLAUNCHAPP._serialized_start=4858
+  _RSPLAUNCHAPP._serialized_end=4906
+  _REQCLOSEAPP._serialized_start=4908
+  _REQCLOSEAPP._serialized_end=4942
+  _RSPCLOSEAPP._serialized_start=4944
+  _RSPCLOSEAPP._serialized_end=4991
+  _REQGETDEVICETIME._serialized_start=4993
+  _REQGETDEVICETIME._serialized_end=5098
+  _REQGETDEVICETIME_TIMETYPE._serialized_start=5061
+  _REQGETDEVICETIME_TIMETYPE._serialized_end=5098
+  _RSPGETDEVICETIME._serialized_start=5100
+  _RSPGETDEVICETIME._serialized_end=5198
+  _REQGETLOCATION._serialized_start=5200
+  _REQGETLOCATION._serialized_end=5216
+  _RSPGETLOCATION._serialized_start=5218
+  _RSPGETLOCATION._serialized_end=5294
+  _REQKEY._serialized_start=5297
+  _REQKEY._serialized_end=5648
+  _REQKEY_KEYTYPE._serialized_start=5454
+  _REQKEY_KEYTYPE._serialized_end=5566
+  _REQKEY_KEYACTIONTYPE._serialized_start=5568
+  _REQKEY_KEYACTIONTYPE._serialized_end=5648
+  _RSPKEY._serialized_start=5650
+  _RSPKEY._serialized_end=5692
+  _REQTAKESCREENSHOT._serialized_start=5694
+  _REQTAKESCREENSHOT._serialized_end=5713
+  _RSPTAKESCREENSHOT._serialized_start=5715
+  _RSPTAKESCREENSHOT._serialized_end=5749
+  _REQEMPTY._serialized_start=5751
+  _REQEMPTY._serialized_end=5761
+  _RSPEMPTY._serialized_start=5763
+  _RSPEMPTY._serialized_end=5773
+  _REQDUMPOBJECTTREE._serialized_start=5775
+  _REQDUMPOBJECTTREE._serialized_end=5813
+  _RSPDUMPOBJECTTREE._serialized_start=5815
+  _RSPDUMPOBJECTTREE._serialized_end=5899
+  _REQGETSCREENSIZE._serialized_start=5901
+  _REQGETSCREENSIZE._serialized_end=5919
+  _RSPGETSCREENSIZE._serialized_start=5921
+  _RSPGETSCREENSIZE._serialized_end=6000
+  _REQACTIONANDWAITEVENT._serialized_start=6003
+  _REQACTIONANDWAITEVENT._serialized_end=6360
+  _REQACTIONANDWAITEVENT_ACTIONTYPE._serialized_start=6205
+  _REQACTIONANDWAITEVENT_ACTIONTYPE._serialized_end=6248
+  _REQACTIONANDWAITEVENT_EVENTTYPE._serialized_start=6250
+  _REQACTIONANDWAITEVENT_EVENTTYPE._serialized_end=6350
+  _RSPACTIONANDWAITEVENT._serialized_start=6362
+  _RSPACTIONANDWAITEVENT._serialized_end=6419
+  _REQSETFOCUS._serialized_start=6421
+  _REQSETFOCUS._serialized_end=6453
+  _RSPSETFOCUS._serialized_start=6455
+  _RSPSETFOCUS._serialized_end=6502
+  _REQGETACTIVEAPPTOOLKITNAME._serialized_start=6504
+  _REQGETACTIVEAPPTOOLKITNAME._serialized_end=6532
+  _RSPGETACTIVEAPPTOOLKITNAME._serialized_start=6534
+  _RSPGETACTIVEAPPTOOLKITNAME._serialized_end=6617
+  _REQENABLESCREENANALYZER._serialized_start=6619
+  _REQENABLESCREENANALYZER._serialized_end=6678
+  _RSPENABLESCREENANALYZER._serialized_start=6680
+  _RSPENABLESCREENANALYZER._serialized_end=6739
+  _REQGETTEXTMINBOUNDINGRECT._serialized_start=6741
+  _REQGETTEXTMINBOUNDINGRECT._serialized_end=6787
+  _RSPGETTEXTMINBOUNDINGRECT._serialized_start=6789
+  _RSPGETTEXTMINBOUNDINGRECT._serialized_end=6877
+  _BOOTSTRAP._serialized_start=6976
+  _BOOTSTRAP._serialized_end=8843
 # @@protoc_insertion_point(module_scope)
