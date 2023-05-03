@@ -24,15 +24,16 @@ def CheckAppBarTest11(stub):
     if isAppBarPageOpened == False:
         return False
 
-    # Move focus to the button "Click to show AppBar".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
+    # Click button "Click to show AppBar".
+    response = stub.findElement(ReqFindElement(textField='Click to show AppBar'))
+    if response.element is None:
+        print("can not found button")
+        return False
 
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
+    targetObj = response.element.elementId
 
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
+    stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
 
-    # Press button to the first page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
     time.sleep(1)
 
     # Take screen shot.
@@ -48,19 +49,20 @@ def CheckAppBarTest11(stub):
     # Check ssim.
     return CheckSSIM(answerImge=expectedScreenShot, testTargetImage=screenShort)
 
-
 # Check the second AppBar page.
 def CheckAppBarTest12(stub):
     if isAppBarPageOpened == False:
         return False
 
-    # Move focus to the button "Click to next".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
+    #Click button "Click to next".
+    response = stub.findElement(ReqFindElement(textField='Click to next'))
+    if response.element is None:
+        print("can not found button")
+        return False
 
-    # Press button to the second page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    targetObj = response.element.elementId
+    stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
+    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/AppBar/AppBarTest12.png")
@@ -75,36 +77,30 @@ def CheckAppBarTest12(stub):
     # Check ssim.
     return CheckSSIM(answerImge=expectedScreenShot, testTargetImage=screenShort)
 
-
 # Check if AppBar exit normally.
 def CheckAppBarTestEnd(stub):
-    # Press button "Pop page" of the second page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
 
-    # Move focus to the button 'Page 2' of the first page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
+    #Click button "Pop page".
+    response = stub.findElement(ReqFindElement(textField='Pop page'))
+    if response.element is None:
+        print("can not found button")
+        return False
 
-    # Move focus to the back button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Left'))
-    time.sleep(0.3)
+    targetObj = response.element.elementId
+    stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
+    time.sleep(1)
 
-    # Press to return AppBar launcher page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    #Click back button.
+    stub.click(ReqClick(type='COORD', coordination=Point(x = 20, y = 20)))
+    time.sleep(1)
 
-    # Move focus to the back button of AppBar launcher page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
-
-    # Press to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    #Click back button.
+    stub.click(ReqClick(type='COORD', coordination=Point(x = 20, y = 20)))
+    time.sleep(1)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
-    time.sleep(0.3)
+    stub.closeApp(ReqCloseApp(packageName='org.tizen.example.NUITizenGallery'))
+    time.sleep(1)
     return True
 
 
