@@ -21,13 +21,9 @@ def CheckNavigatorTest31(stub):
     if not isNavigatorPageOpened:
         return False
 
-    # Move focus to the button "Click to show Navigator".
-    for i in range(3):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-
-    # Press button to the first page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(1)
+    # Click button "Click to show Navigator".
+    if(FindButtonandClickByText(stub, 'Click to show Navigator') == False):
+        return False
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest31.png")
@@ -48,17 +44,9 @@ def CheckNavigatorTest32(stub):
     if not isNavigatorPageOpened:
         return False
 
-    # Move focus to the button "Click to next".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Left'))
-    time.sleep(0.3)
-
-    # Move focus to the button "Click to insert a page below".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-    time.sleep(0.3)
-
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    #Click button "Page count is 2. Click to insert a page below.".
+    if(FindButtonandClickByText(stub, 'Page count is 2. Click to insert a page below.') == False):
+        return False
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest32.png")
@@ -79,13 +67,9 @@ def CheckNavigatorTest33(stub):
     if not isNavigatorPageOpened:
         return False
 
-    # Move focus to the button "Click to next".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-    time.sleep(0.3)
-
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    #Click button "Page count is 2. Click to insert a page below.".
+    if(FindButtonandClickByText(stub, 'Click to next') == False):
+        return False
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest33.png")
@@ -104,15 +88,15 @@ def CheckNavigatorTest33(stub):
 # Check if AppBar exit normally.
 def CheckNavigatorTestEnd(stub):
     # Press back icon.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Press to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(0.3)
     return True
 

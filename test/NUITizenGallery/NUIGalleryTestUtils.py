@@ -68,7 +68,7 @@ def FindTCAndClickByFlicking(stub, targetTC):
         stub.flick(ReqFlick(startPoint=Point(x=160, y=459), endPoint=Point(x=160, y=130), durationMs=110))
         time.sleep(3)
 
-    ㅍ("couldn't found target TC:", targetTC)
+    print("couldn't found target TC:", targetTC)
     return False
 
 
@@ -148,3 +148,19 @@ def CheckSSIM(answerImge, testTargetImage):
     ssim_map = np.mean(ssim_map)
     print("ssim value is ", ssim_map)
     return ssim_map >= 0.99
+
+def FindButtonandClickByText(stub, text):
+    response = stub.findElement(ReqFindElement(textField=text))
+    if response.element is None:
+        print("can not found button")
+        return False
+
+    targetObj = response.element.elementId
+    stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
+    return True
+
+def ClickBackButton(stub):
+    stub.click(ReqClick(type='COORD', coordination=Point(x = 20, y = 20)))
+
+def ExitApp(stub):
+    stub.closeApp(ReqCloseApp(packageName='org.tizen.example.NUITizenGallery'))

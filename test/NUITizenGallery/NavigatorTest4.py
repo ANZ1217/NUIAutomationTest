@@ -21,13 +21,9 @@ def CheckNavigatorTest41(stub):
     if not isNavigatorPageOpened:
         return False
 
-    # Move focus to the button "Click to show Navigator".
-    for i in range(3):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-
-    # Press button to the first page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(1)
+    # Click button "Click to show Navigator".
+    if(FindButtonandClickByText(stub, 'Click to show Navigator') == False):
+        return False
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest41.png")
@@ -48,13 +44,9 @@ def CheckNavigatorTest42(stub):
     if not isNavigatorPageOpened:
         return False
 
-    # Move focus to the button "Click to next".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Left'))
-    time.sleep(0.3)
-
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    # Click button "Click to next".
+    if(FindButtonandClickByText(stub, 'Click to next') == False):
+        return False
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Navigator/NavigatorTest42.png")
@@ -76,15 +68,11 @@ def CheckNavigatorTest43(stub):
         return False
 
     # Press back icon.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(1)
 
-    # Move focus.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-    time.sleep(0.3)
-
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    # Press back icon.
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Take screen shot.
@@ -107,15 +95,15 @@ def CheckNavigatorTest44(stub):
         return False
 
     # Press back icon.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(1)
 
     # Move focus.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
+    #stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
     time.sleep(0.3)
 
     # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Take screen shot.
@@ -138,15 +126,15 @@ def CheckNavigatorTest45(stub):
         return False
 
     # Press back icon.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(1)
 
     # Move focus.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
+    #stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
     time.sleep(0.3)
 
     # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Take screen shot.
@@ -165,29 +153,17 @@ def CheckNavigatorTest45(stub):
 
 # Check if AppBar exit normally.
 def CheckNavigatorTestEnd(stub):
-    # Move focus to back icon.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Left'))
-    time.sleep(0.3)
 
     # Press back icon.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
-
-    # Press up key.
-    for i in range(2):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-        time.sleep(0.3)
-
-    # Move focus to back icon.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Press to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(0.3)
     return True
 

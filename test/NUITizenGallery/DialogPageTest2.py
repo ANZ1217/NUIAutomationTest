@@ -25,15 +25,9 @@ def CheckDialogPageTest11(stub):
     if isDialogPageOpened == False:
         return False
 
-    # Move focus to the button "Click to show Dialog".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
-
-    # Press button to show a dialog.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    # Click button "Click to show Dialog".
+    if(FindButtonandClickByText(stub, 'Click to show Dialog') == False):
+        return False
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/DialogPage/DialogPageTest21.png")
@@ -59,14 +53,9 @@ def CheckDialogPageTestEnd(stub):
             stub.click(ReqClick(type="ELEMENTID", elementId=bt.elementId))
             time.sleep(0.3)
 
-    # Move focus to the back button of DialogPage launcher page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
-
-    # Press to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    #Click back button.
+    ClickBackButton(stub)
+    time.sleep(1)
 
     return True
 

@@ -25,16 +25,8 @@ def CheckAppBarTest11(stub):
         return False
 
     # Click button "Click to show AppBar".
-    response = stub.findElement(ReqFindElement(textField='Click to show AppBar'))
-    if response.element is None:
-        print("can not found button")
+    if(FindButtonandClickByText(stub, 'Click to show AppBar') == False):
         return False
-
-    targetObj = response.element.elementId
-
-    stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
-
-    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/AppBar/AppBarTest11.png")
@@ -55,14 +47,8 @@ def CheckAppBarTest12(stub):
         return False
 
     #Click button "Click to next".
-    response = stub.findElement(ReqFindElement(textField='Click to next'))
-    if response.element is None:
-        print("can not found button")
+    if(FindButtonandClickByText(stub, 'Click to next') == False):
         return False
-
-    targetObj = response.element.elementId
-    stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
-    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/AppBar/AppBarTest12.png")
@@ -81,25 +67,19 @@ def CheckAppBarTest12(stub):
 def CheckAppBarTestEnd(stub):
 
     #Click button "Pop page".
-    response = stub.findElement(ReqFindElement(textField='Pop page'))
-    if response.element is None:
-        print("can not found button")
+    if(FindButtonandClickByText(stub, 'Pop page') == False):
         return False
 
-    targetObj = response.element.elementId
-    stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
+    #Click back button.
+    ClickBackButton(stub)
     time.sleep(1)
 
     #Click back button.
-    stub.click(ReqClick(type='COORD', coordination=Point(x = 20, y = 20)))
-    time.sleep(1)
-
-    #Click back button.
-    stub.click(ReqClick(type='COORD', coordination=Point(x = 20, y = 20)))
+    ClickBackButton(stub)
     time.sleep(1)
 
     # Exit Gallery.
-    stub.closeApp(ReqCloseApp(packageName='org.tizen.example.NUITizenGallery'))
+    ExitApp(stub)
     time.sleep(1)
     return True
 
