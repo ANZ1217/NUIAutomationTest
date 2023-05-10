@@ -26,13 +26,12 @@ def CheckCollectionViewLinearTest121(stub):
         return False
 
     # Move focus to the 14th row.
-    for i in range(14):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-        time.sleep(0.3)
+    stub.flick(ReqFlick(startPoint=Point(x=160, y=250), endPoint=Point(x=160, y=130), durationMs=110))
+    time.sleep(8)
 
-    # Select the image.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, '[9] : Police, ') == False):
+        return False
+    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest121.png")
@@ -54,13 +53,12 @@ def CheckCollectionViewLinearTest122(stub):
         return False
 
     # Move focus to the first row.
-    for i in range(14):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-        time.sleep(0.3)
+    stub.flick(ReqFlick(startPoint=Point(x=160, y=130), endPoint=Point(x=160, y=250), durationMs=110))
+    time.sleep(8)
 
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, 'CollectionViewLinearGroupTest12, ') == False):
+        return False
+    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest122.png")
@@ -78,17 +76,13 @@ def CheckCollectionViewLinearTest122(stub):
 
 # Check if CollectionView exit normally.
 def CheckCollectionViewLinearTestEnd(stub):
-    # Move focus to the back button.
-    for i in range(3):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-        time.sleep(0.3)
 
     # Press to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(2)
     return True
 

@@ -25,14 +25,15 @@ def CheckCollectionViewGridGroupTest131(stub):
     if isCollectionViewGridGroupPageOpened == False:
         return False
 
-    # Move focus to the fourth column of the first row.
-    for i in range(6):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-        time.sleep(0.3)
+    time.sleep(1)
 
-    # Select the image.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    # Move focus to the fourth column of the first row.
+    stub.flick(ReqFlick(startPoint=Point(x=160, y=250), endPoint=Point(x=160, y=130), durationMs=110))
+    time.sleep(8)
+
+    if(FindButtonandClickByText(stub, '[6] : Statue') == False):
+        return False
+    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest131.png")
@@ -54,13 +55,9 @@ def CheckCollectionViewGridGroupTest132(stub):
         return False
 
     # Move focus to the fourth column of the sixth row.
-    for i in range(6):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-        time.sleep(0.3)
-
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, '[11] : Icicle') == False):
+        return False
+    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest132.png")
@@ -78,18 +75,14 @@ def CheckCollectionViewGridGroupTest132(stub):
 
 # Check if CollectionView exit normally.
 def CheckCollectionViewGridGroupTestEnd(stub):
-    # Move focus to the back button.
-    for i in range(8):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-        time.sleep(0.3)
 
     # Press to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Exit Gallery.
     stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
-    time.sleep(2)
+    ExitApp(stub)
     return True
 
 

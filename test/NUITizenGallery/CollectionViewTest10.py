@@ -26,13 +26,9 @@ def CheckCollectionViewGridTest101(stub):
         return False
 
     # Move focus to the fourth column of the first row.
-    for i in range(4):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-        time.sleep(0.3)
-
-    # Select the image.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, '[10] : Inserted Item') == False):
+        return False
+    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest101.png")
@@ -54,13 +50,12 @@ def CheckCollectionViewGridTest102(stub):
         return False
 
     # Move focus to the fourth column of the sixth row.
-    for i in range(6):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-        time.sleep(0.3)
+    stub.flick(ReqFlick(startPoint=Point(x=160, y=400), endPoint=Point(x=160, y=130), durationMs=110))
+    time.sleep(5)
 
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, '[29] : Police') == False):
+        return False
+    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CollectionView/CollectionViewTest102.png")
@@ -78,18 +73,12 @@ def CheckCollectionViewGridTest102(stub):
 
 # Check if CollectionView exit normally.
 def CheckCollectionViewGridTestEnd(stub):
-    # Move focus to the back button.
-    for i in range(8):
-        stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-        time.sleep(0.3)
 
     # Press to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    ClickBackButton(stub)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
-    time.sleep(2)
+    ExitApp(stub)
     return True
 
 
