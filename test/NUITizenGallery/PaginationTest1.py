@@ -78,11 +78,11 @@ def CheckPaginationTestEnd(stub):
     isPaginationPageOpened = False
 
     # Return to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(1)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(2)
     return True
 

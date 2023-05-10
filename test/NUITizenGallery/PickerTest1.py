@@ -111,13 +111,7 @@ def launchAppTest(stub):
     return stub.getAppInfo(ReqGetAppInfo(packageName='org.tizen.example.NUITizenGallery')).isRunning
 
 def closeAppTest(stub):
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
-
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
-
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
     return True
 

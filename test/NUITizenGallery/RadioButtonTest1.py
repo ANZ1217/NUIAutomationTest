@@ -25,15 +25,9 @@ def CheckRadioButton1(stub):
     if not isRadioButtonPageOpened:
         return False
 
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
-
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-    time.sleep(0.3)
-
-    # Press TabButton.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, 'familyRadioButton0') == False):
+        return False
+    time.sleep(1)
 
     # Take ScreenShot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/RadioButton/RadioButtonTest1.png")
@@ -54,11 +48,11 @@ def CheckRadioButtonTestEnd(stub):
     isRadioButtonPageOpened = False
 
     # Return to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(0.3)
     return True
 

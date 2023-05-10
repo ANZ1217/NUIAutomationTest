@@ -26,12 +26,8 @@ def CheckLoadingTest11(stub):
         return False
 
     # Move focus to the button "FPS++".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
-
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, 'FPS++') == False):
+        return False
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Loading/LoadingTest11.png")
@@ -53,12 +49,8 @@ def CheckLoadingTest12(stub):
         return False
 
     # Move focus to the button "FPS++".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-    time.sleep(0.3)
-
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, 'FPS++') == False):
+        return False
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Loading/LoadingTest12.png")
@@ -80,12 +72,8 @@ def CheckLoadingTest13(stub):
         return False
 
     # Move focus to the button "Pause".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
-
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, 'Pause') == False):
+        return False
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Loading/LoadingTest13.png")
@@ -103,19 +91,12 @@ def CheckLoadingTest13(stub):
 
 # Check if Loading exit normally.
 def CheckLoadingTestEnd(stub):
-    # Move focus to the back button of Loading page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
-
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
-
     # Press to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(2)
     return True
 

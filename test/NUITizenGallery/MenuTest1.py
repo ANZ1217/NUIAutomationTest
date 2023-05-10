@@ -26,12 +26,8 @@ def CheckMenuTest11(stub):
         return False
 
     # Move focus to the button "Show Menu".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
-
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, 'Show Menu') == False):
+        return False
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Menu/MenuTest11.png")
@@ -53,12 +49,8 @@ def CheckMenuTest12(stub):
         return False
 
     # Move focus to the button "Dismiss Menu".
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-    time.sleep(0.3)
-
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, 'Dismiss Menu') == False):
+        return False
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Menu/MenuTest12.png")
@@ -76,19 +68,13 @@ def CheckMenuTest12(stub):
 
 # Check if Menu exit normally.
 def CheckMenuTestEnd(stub):
-    # Move focus to the back button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
-
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
 
     # Press to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(2)
     return True
 

@@ -47,15 +47,9 @@ def CheckTimePickerTest1(stub):
                                 endPoint=Point(x=XPos + int(Width/2), y=YPos + int(Height / 6)),durationMs=110))
             time.sleep(0.3)
 
-            stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-            time.sleep(0.3)
-
-            stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-            time.sleep(0.3)
-
             # Press button.
-            stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-            time.sleep(0.3)
+            if(FindButtonandClickByGeometry(stub, 327, 553, 100, 46) == False):
+                return False
 
             # Take screenshot
             screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TimePicker/TimePickerTest01.png")
@@ -114,18 +108,9 @@ def CheckTimePickerTest3(stub):
                                 endPoint=Point(x=XPos + int(Width / 2), y=YPos + int(Height / 6)), durationMs=110))
             time.sleep(0.3)
 
-            stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-            time.sleep(0.3)
-
-            stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-            time.sleep(0.3)
-
-            stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-            time.sleep(0.3)
-
             # Press button.
-            stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-            time.sleep(0.3)
+            if(FindButtonandClickByText(stub, 'Cancel') == False):
+                return False
 
             # Take screenshot
             screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TimePicker/TimePickerTest03.png")
@@ -166,11 +151,11 @@ def CheckTimePickerTestEnd(stub):
     isTimePickerPageOpened = False
 
     # Return to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(1)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(2)
     return True
 

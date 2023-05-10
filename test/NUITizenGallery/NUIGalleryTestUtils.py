@@ -159,6 +159,16 @@ def FindButtonandClickByText(stub, text):
     stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
     return True
 
+def FindButtonandClickByGeometry(stub, x, y, width, height):
+    response = stub.findElement(ReqFindElement(geometry=Rect(x = x, y = y, width = width, height = height)))
+    if response.element is None:
+        print("can not found button")
+        return False
+
+    targetObj = response.element.elementId
+    stub.click(ReqClick(type='ELEMENTID', elementId=targetObj))
+
+
 def ClickBackButton(stub):
     stub.click(ReqClick(type='COORD', coordination=Point(x = 20, y = 20)))
 

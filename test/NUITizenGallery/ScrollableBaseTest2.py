@@ -165,11 +165,11 @@ def CheckScrollableBase2TestEnd(stub):
     isScrollableBase2PageOpened = False
 
     # Return to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(0.3)
     return True
 

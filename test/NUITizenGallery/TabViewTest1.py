@@ -25,15 +25,9 @@ def CheckTabViewTest1(stub):
     if not isTabViewPageOpened:
         return False
 
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
-
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-    time.sleep(0.3)
-
     # Press TabButton.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, 'Tab1') == False):
+        return False
 
     # Take ScreenShot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TabView/TabViewTest1.png")
@@ -53,12 +47,9 @@ def CheckTabViewTest2(stub):
     if not isTabViewPageOpened:
         return False
 
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-    time.sleep(0.3)
-
     # Press TabButton.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, 'Tab2') == False):
+        return False
 
     # Take ScreenShot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/TabView/TabViewTest2.png")
@@ -103,11 +94,11 @@ def CheckTabViewTestEnd(stub):
     isTabViewPageOpened = False
 
     # Return to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(0.3)
     return True
 

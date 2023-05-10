@@ -25,13 +25,9 @@ def CheckCheckBoxTest11(stub):
     if not isCheckBoxPageOpened:
         return False
 
-    # Move focus to the first checkbox.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
-
     # Press checkbox.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    FindButtonandClickByGeometry(stub, 216, 159, 48, 48)
+    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/CheckBox/CheckBoxTest11.png")
@@ -53,8 +49,8 @@ def CheckCheckBoxTest12(stub):
         return False
 
     # Move focus to the second CheckBox.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
+    FindButtonandClickByGeometry(stub, 216, 257, 48, 48)
+    time.sleep(1)
 
     # Press checkbox.
     stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
@@ -76,19 +72,13 @@ def CheckCheckBoxTest12(stub):
 
 # Check if CheckBox exit normally.
 def CheckCheckBoxTestEnd(stub):
-    # Move focus to the back button of DialogPage launcher page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
-
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
 
     # Press to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(2)
     return True
 

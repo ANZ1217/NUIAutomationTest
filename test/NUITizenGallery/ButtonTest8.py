@@ -25,16 +25,10 @@ def CheckButtonTest81(stub):
     if isButtonPageOpened == False:
         return False
 
-    # Move focus to the first button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
-
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
-
     # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, 'Button') == False):
+        return False
+    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Button/ButtonTest81.png")
@@ -55,13 +49,9 @@ def CheckButtonTest82(stub):
     if isButtonPageOpened == False:
         return False
 
-    # Move focus to the second button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-    time.sleep(0.3)
-
     # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    FindButtonandClickByGeometry(stub, 250, 64, 80, 80)
+    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Button/ButtonTest82.png")
@@ -82,18 +72,9 @@ def CheckButtonTest83(stub):
     if isButtonPageOpened == False:
         return False
 
-    # Move focus to the third button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Down'))
-    time.sleep(0.3)
-
     # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
-
-    # Take screen shot.
-    screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Button/ButtonTest83.png")
-    if screenShort is None:
-        return False
+    FindButtonandClickByGeometry(stub, 250, 194, 80, 80)
+    time.sleep(1)
 
     # Read image file expected.
     expectedScreenShot = ReadImageFile(fileName='Results/ExpectedImages/Button/ButtonTest83.png')
@@ -110,12 +91,9 @@ def CheckButtonTest84(stub):
         return False
 
     # Move focus to the fourth button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Right'))
-    time.sleep(0.3)
-
-    # Press button.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
-    time.sleep(0.3)
+    if(FindButtonandClickByText(stub, 'IconTextButton') == False):
+        return False
+    time.sleep(1)
 
     # Take screen shot.
     screenShort = ReadScreenShotFile(stub, fileName="Results/TestedImages/Button/ButtonTest84.png")
@@ -133,16 +111,13 @@ def CheckButtonTest84(stub):
 
 # Check if Button page exit normally.
 def CheckButtonTestEnd(stub):
-    # Move focus to the button 'Page 2' of the first page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Up'))
-    time.sleep(0.3)
 
     # Press to NUI Gallery page.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='Return'))
+    ClickBackButton(stub)
     time.sleep(0.3)
 
     # Exit Gallery.
-    stub.sendKey(ReqKey(type='XF86', actionType='STROKE', XF86keyCode='XF86Exit'))
+    ExitApp(stub)
     time.sleep(0.3)
     return True
 
